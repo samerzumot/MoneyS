@@ -1,0 +1,2259 @@
+import type * as runtime from "@prisma/client/runtime/library";
+import type * as $Enums from "../enums";
+import type * as Prisma from "../internal/prismaNamespace";
+/**
+ * Model DebtAccount
+ *
+ */
+export type DebtAccountModel = runtime.Types.Result.DefaultSelection<Prisma.$DebtAccountPayload>;
+export type AggregateDebtAccount = {
+    _count: DebtAccountCountAggregateOutputType | null;
+    _avg: DebtAccountAvgAggregateOutputType | null;
+    _sum: DebtAccountSumAggregateOutputType | null;
+    _min: DebtAccountMinAggregateOutputType | null;
+    _max: DebtAccountMaxAggregateOutputType | null;
+};
+export type DebtAccountAvgAggregateOutputType = {
+    balance: runtime.Decimal | null;
+    interestRate: runtime.Decimal | null;
+    minPayment: runtime.Decimal | null;
+    suggestedPayment: runtime.Decimal | null;
+};
+export type DebtAccountSumAggregateOutputType = {
+    balance: runtime.Decimal | null;
+    interestRate: runtime.Decimal | null;
+    minPayment: runtime.Decimal | null;
+    suggestedPayment: runtime.Decimal | null;
+};
+export type DebtAccountMinAggregateOutputType = {
+    id: string | null;
+    userId: string | null;
+    plaidItemId: string | null;
+    plaidAccountId: string | null;
+    name: string | null;
+    type: $Enums.DebtType | null;
+    balance: runtime.Decimal | null;
+    interestRate: runtime.Decimal | null;
+    minPayment: runtime.Decimal | null;
+    dueDate: Date | null;
+    suggestedPayment: runtime.Decimal | null;
+    autopay: boolean | null;
+    lastSyncedAt: Date | null;
+    createdAt: Date | null;
+    updatedAt: Date | null;
+};
+export type DebtAccountMaxAggregateOutputType = {
+    id: string | null;
+    userId: string | null;
+    plaidItemId: string | null;
+    plaidAccountId: string | null;
+    name: string | null;
+    type: $Enums.DebtType | null;
+    balance: runtime.Decimal | null;
+    interestRate: runtime.Decimal | null;
+    minPayment: runtime.Decimal | null;
+    dueDate: Date | null;
+    suggestedPayment: runtime.Decimal | null;
+    autopay: boolean | null;
+    lastSyncedAt: Date | null;
+    createdAt: Date | null;
+    updatedAt: Date | null;
+};
+export type DebtAccountCountAggregateOutputType = {
+    id: number;
+    userId: number;
+    plaidItemId: number;
+    plaidAccountId: number;
+    name: number;
+    type: number;
+    balance: number;
+    interestRate: number;
+    minPayment: number;
+    dueDate: number;
+    suggestedPayment: number;
+    autopay: number;
+    lastSyncedAt: number;
+    createdAt: number;
+    updatedAt: number;
+    _all: number;
+};
+export type DebtAccountAvgAggregateInputType = {
+    balance?: true;
+    interestRate?: true;
+    minPayment?: true;
+    suggestedPayment?: true;
+};
+export type DebtAccountSumAggregateInputType = {
+    balance?: true;
+    interestRate?: true;
+    minPayment?: true;
+    suggestedPayment?: true;
+};
+export type DebtAccountMinAggregateInputType = {
+    id?: true;
+    userId?: true;
+    plaidItemId?: true;
+    plaidAccountId?: true;
+    name?: true;
+    type?: true;
+    balance?: true;
+    interestRate?: true;
+    minPayment?: true;
+    dueDate?: true;
+    suggestedPayment?: true;
+    autopay?: true;
+    lastSyncedAt?: true;
+    createdAt?: true;
+    updatedAt?: true;
+};
+export type DebtAccountMaxAggregateInputType = {
+    id?: true;
+    userId?: true;
+    plaidItemId?: true;
+    plaidAccountId?: true;
+    name?: true;
+    type?: true;
+    balance?: true;
+    interestRate?: true;
+    minPayment?: true;
+    dueDate?: true;
+    suggestedPayment?: true;
+    autopay?: true;
+    lastSyncedAt?: true;
+    createdAt?: true;
+    updatedAt?: true;
+};
+export type DebtAccountCountAggregateInputType = {
+    id?: true;
+    userId?: true;
+    plaidItemId?: true;
+    plaidAccountId?: true;
+    name?: true;
+    type?: true;
+    balance?: true;
+    interestRate?: true;
+    minPayment?: true;
+    dueDate?: true;
+    suggestedPayment?: true;
+    autopay?: true;
+    lastSyncedAt?: true;
+    createdAt?: true;
+    updatedAt?: true;
+    _all?: true;
+};
+export type DebtAccountAggregateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Filter which DebtAccount to aggregate.
+     */
+    where?: Prisma.DebtAccountWhereInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of DebtAccounts to fetch.
+     */
+    orderBy?: Prisma.DebtAccountOrderByWithRelationInput | Prisma.DebtAccountOrderByWithRelationInput[];
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the start position
+     */
+    cursor?: Prisma.DebtAccountWhereUniqueInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` DebtAccounts from the position of the cursor.
+     */
+    take?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` DebtAccounts.
+     */
+    skip?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Count returned DebtAccounts
+    **/
+    _count?: true | DebtAccountCountAggregateInputType;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to average
+    **/
+    _avg?: DebtAccountAvgAggregateInputType;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to sum
+    **/
+    _sum?: DebtAccountSumAggregateInputType;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to find the minimum value
+    **/
+    _min?: DebtAccountMinAggregateInputType;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     *
+     * Select which fields to find the maximum value
+    **/
+    _max?: DebtAccountMaxAggregateInputType;
+};
+export type GetDebtAccountAggregateType<T extends DebtAccountAggregateArgs> = {
+    [P in keyof T & keyof AggregateDebtAccount]: P extends '_count' | 'count' ? T[P] extends true ? number : Prisma.GetScalarType<T[P], AggregateDebtAccount[P]> : Prisma.GetScalarType<T[P], AggregateDebtAccount[P]>;
+};
+export type DebtAccountGroupByArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    where?: Prisma.DebtAccountWhereInput;
+    orderBy?: Prisma.DebtAccountOrderByWithAggregationInput | Prisma.DebtAccountOrderByWithAggregationInput[];
+    by: Prisma.DebtAccountScalarFieldEnum[] | Prisma.DebtAccountScalarFieldEnum;
+    having?: Prisma.DebtAccountScalarWhereWithAggregatesInput;
+    take?: number;
+    skip?: number;
+    _count?: DebtAccountCountAggregateInputType | true;
+    _avg?: DebtAccountAvgAggregateInputType;
+    _sum?: DebtAccountSumAggregateInputType;
+    _min?: DebtAccountMinAggregateInputType;
+    _max?: DebtAccountMaxAggregateInputType;
+};
+export type DebtAccountGroupByOutputType = {
+    id: string;
+    userId: string;
+    plaidItemId: string | null;
+    plaidAccountId: string | null;
+    name: string;
+    type: $Enums.DebtType;
+    balance: runtime.Decimal;
+    interestRate: runtime.Decimal;
+    minPayment: runtime.Decimal;
+    dueDate: Date | null;
+    suggestedPayment: runtime.Decimal;
+    autopay: boolean;
+    lastSyncedAt: Date | null;
+    createdAt: Date;
+    updatedAt: Date;
+    _count: DebtAccountCountAggregateOutputType | null;
+    _avg: DebtAccountAvgAggregateOutputType | null;
+    _sum: DebtAccountSumAggregateOutputType | null;
+    _min: DebtAccountMinAggregateOutputType | null;
+    _max: DebtAccountMaxAggregateOutputType | null;
+};
+type GetDebtAccountGroupByPayload<T extends DebtAccountGroupByArgs> = Prisma.PrismaPromise<Array<Prisma.PickEnumerable<DebtAccountGroupByOutputType, T['by']> & {
+    [P in ((keyof T) & (keyof DebtAccountGroupByOutputType))]: P extends '_count' ? T[P] extends boolean ? number : Prisma.GetScalarType<T[P], DebtAccountGroupByOutputType[P]> : Prisma.GetScalarType<T[P], DebtAccountGroupByOutputType[P]>;
+}>>;
+export type DebtAccountWhereInput = {
+    AND?: Prisma.DebtAccountWhereInput | Prisma.DebtAccountWhereInput[];
+    OR?: Prisma.DebtAccountWhereInput[];
+    NOT?: Prisma.DebtAccountWhereInput | Prisma.DebtAccountWhereInput[];
+    id?: Prisma.StringFilter<"DebtAccount"> | string;
+    userId?: Prisma.StringFilter<"DebtAccount"> | string;
+    plaidItemId?: Prisma.StringNullableFilter<"DebtAccount"> | string | null;
+    plaidAccountId?: Prisma.StringNullableFilter<"DebtAccount"> | string | null;
+    name?: Prisma.StringFilter<"DebtAccount"> | string;
+    type?: Prisma.EnumDebtTypeFilter<"DebtAccount"> | $Enums.DebtType;
+    balance?: Prisma.DecimalFilter<"DebtAccount"> | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    interestRate?: Prisma.DecimalFilter<"DebtAccount"> | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    minPayment?: Prisma.DecimalFilter<"DebtAccount"> | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    dueDate?: Prisma.DateTimeNullableFilter<"DebtAccount"> | Date | string | null;
+    suggestedPayment?: Prisma.DecimalFilter<"DebtAccount"> | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    autopay?: Prisma.BoolFilter<"DebtAccount"> | boolean;
+    lastSyncedAt?: Prisma.DateTimeNullableFilter<"DebtAccount"> | Date | string | null;
+    createdAt?: Prisma.DateTimeFilter<"DebtAccount"> | Date | string;
+    updatedAt?: Prisma.DateTimeFilter<"DebtAccount"> | Date | string;
+    user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>;
+    plaidItem?: Prisma.XOR<Prisma.PlaidItemNullableScalarRelationFilter, Prisma.PlaidItemWhereInput> | null;
+    planEntries?: Prisma.PayoffPlanEntryListRelationFilter;
+    payments?: Prisma.DebtPaymentListRelationFilter;
+    notifications?: Prisma.NotificationListRelationFilter;
+};
+export type DebtAccountOrderByWithRelationInput = {
+    id?: Prisma.SortOrder;
+    userId?: Prisma.SortOrder;
+    plaidItemId?: Prisma.SortOrderInput | Prisma.SortOrder;
+    plaidAccountId?: Prisma.SortOrderInput | Prisma.SortOrder;
+    name?: Prisma.SortOrder;
+    type?: Prisma.SortOrder;
+    balance?: Prisma.SortOrder;
+    interestRate?: Prisma.SortOrder;
+    minPayment?: Prisma.SortOrder;
+    dueDate?: Prisma.SortOrderInput | Prisma.SortOrder;
+    suggestedPayment?: Prisma.SortOrder;
+    autopay?: Prisma.SortOrder;
+    lastSyncedAt?: Prisma.SortOrderInput | Prisma.SortOrder;
+    createdAt?: Prisma.SortOrder;
+    updatedAt?: Prisma.SortOrder;
+    user?: Prisma.UserOrderByWithRelationInput;
+    plaidItem?: Prisma.PlaidItemOrderByWithRelationInput;
+    planEntries?: Prisma.PayoffPlanEntryOrderByRelationAggregateInput;
+    payments?: Prisma.DebtPaymentOrderByRelationAggregateInput;
+    notifications?: Prisma.NotificationOrderByRelationAggregateInput;
+};
+export type DebtAccountWhereUniqueInput = Prisma.AtLeast<{
+    id?: string;
+    plaidAccountId?: string;
+    AND?: Prisma.DebtAccountWhereInput | Prisma.DebtAccountWhereInput[];
+    OR?: Prisma.DebtAccountWhereInput[];
+    NOT?: Prisma.DebtAccountWhereInput | Prisma.DebtAccountWhereInput[];
+    userId?: Prisma.StringFilter<"DebtAccount"> | string;
+    plaidItemId?: Prisma.StringNullableFilter<"DebtAccount"> | string | null;
+    name?: Prisma.StringFilter<"DebtAccount"> | string;
+    type?: Prisma.EnumDebtTypeFilter<"DebtAccount"> | $Enums.DebtType;
+    balance?: Prisma.DecimalFilter<"DebtAccount"> | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    interestRate?: Prisma.DecimalFilter<"DebtAccount"> | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    minPayment?: Prisma.DecimalFilter<"DebtAccount"> | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    dueDate?: Prisma.DateTimeNullableFilter<"DebtAccount"> | Date | string | null;
+    suggestedPayment?: Prisma.DecimalFilter<"DebtAccount"> | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    autopay?: Prisma.BoolFilter<"DebtAccount"> | boolean;
+    lastSyncedAt?: Prisma.DateTimeNullableFilter<"DebtAccount"> | Date | string | null;
+    createdAt?: Prisma.DateTimeFilter<"DebtAccount"> | Date | string;
+    updatedAt?: Prisma.DateTimeFilter<"DebtAccount"> | Date | string;
+    user?: Prisma.XOR<Prisma.UserScalarRelationFilter, Prisma.UserWhereInput>;
+    plaidItem?: Prisma.XOR<Prisma.PlaidItemNullableScalarRelationFilter, Prisma.PlaidItemWhereInput> | null;
+    planEntries?: Prisma.PayoffPlanEntryListRelationFilter;
+    payments?: Prisma.DebtPaymentListRelationFilter;
+    notifications?: Prisma.NotificationListRelationFilter;
+}, "id" | "plaidAccountId">;
+export type DebtAccountOrderByWithAggregationInput = {
+    id?: Prisma.SortOrder;
+    userId?: Prisma.SortOrder;
+    plaidItemId?: Prisma.SortOrderInput | Prisma.SortOrder;
+    plaidAccountId?: Prisma.SortOrderInput | Prisma.SortOrder;
+    name?: Prisma.SortOrder;
+    type?: Prisma.SortOrder;
+    balance?: Prisma.SortOrder;
+    interestRate?: Prisma.SortOrder;
+    minPayment?: Prisma.SortOrder;
+    dueDate?: Prisma.SortOrderInput | Prisma.SortOrder;
+    suggestedPayment?: Prisma.SortOrder;
+    autopay?: Prisma.SortOrder;
+    lastSyncedAt?: Prisma.SortOrderInput | Prisma.SortOrder;
+    createdAt?: Prisma.SortOrder;
+    updatedAt?: Prisma.SortOrder;
+    _count?: Prisma.DebtAccountCountOrderByAggregateInput;
+    _avg?: Prisma.DebtAccountAvgOrderByAggregateInput;
+    _max?: Prisma.DebtAccountMaxOrderByAggregateInput;
+    _min?: Prisma.DebtAccountMinOrderByAggregateInput;
+    _sum?: Prisma.DebtAccountSumOrderByAggregateInput;
+};
+export type DebtAccountScalarWhereWithAggregatesInput = {
+    AND?: Prisma.DebtAccountScalarWhereWithAggregatesInput | Prisma.DebtAccountScalarWhereWithAggregatesInput[];
+    OR?: Prisma.DebtAccountScalarWhereWithAggregatesInput[];
+    NOT?: Prisma.DebtAccountScalarWhereWithAggregatesInput | Prisma.DebtAccountScalarWhereWithAggregatesInput[];
+    id?: Prisma.StringWithAggregatesFilter<"DebtAccount"> | string;
+    userId?: Prisma.StringWithAggregatesFilter<"DebtAccount"> | string;
+    plaidItemId?: Prisma.StringNullableWithAggregatesFilter<"DebtAccount"> | string | null;
+    plaidAccountId?: Prisma.StringNullableWithAggregatesFilter<"DebtAccount"> | string | null;
+    name?: Prisma.StringWithAggregatesFilter<"DebtAccount"> | string;
+    type?: Prisma.EnumDebtTypeWithAggregatesFilter<"DebtAccount"> | $Enums.DebtType;
+    balance?: Prisma.DecimalWithAggregatesFilter<"DebtAccount"> | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    interestRate?: Prisma.DecimalWithAggregatesFilter<"DebtAccount"> | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    minPayment?: Prisma.DecimalWithAggregatesFilter<"DebtAccount"> | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    dueDate?: Prisma.DateTimeNullableWithAggregatesFilter<"DebtAccount"> | Date | string | null;
+    suggestedPayment?: Prisma.DecimalWithAggregatesFilter<"DebtAccount"> | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    autopay?: Prisma.BoolWithAggregatesFilter<"DebtAccount"> | boolean;
+    lastSyncedAt?: Prisma.DateTimeNullableWithAggregatesFilter<"DebtAccount"> | Date | string | null;
+    createdAt?: Prisma.DateTimeWithAggregatesFilter<"DebtAccount"> | Date | string;
+    updatedAt?: Prisma.DateTimeWithAggregatesFilter<"DebtAccount"> | Date | string;
+};
+export type DebtAccountCreateInput = {
+    id?: string;
+    plaidAccountId?: string | null;
+    name: string;
+    type: $Enums.DebtType;
+    balance: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    interestRate: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    minPayment: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    dueDate?: Date | string | null;
+    suggestedPayment?: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    autopay?: boolean;
+    lastSyncedAt?: Date | string | null;
+    createdAt?: Date | string;
+    updatedAt?: Date | string;
+    user: Prisma.UserCreateNestedOneWithoutDebtsInput;
+    plaidItem?: Prisma.PlaidItemCreateNestedOneWithoutAccountsInput;
+    planEntries?: Prisma.PayoffPlanEntryCreateNestedManyWithoutDebtInput;
+    payments?: Prisma.DebtPaymentCreateNestedManyWithoutDebtInput;
+    notifications?: Prisma.NotificationCreateNestedManyWithoutDebtInput;
+};
+export type DebtAccountUncheckedCreateInput = {
+    id?: string;
+    userId: string;
+    plaidItemId?: string | null;
+    plaidAccountId?: string | null;
+    name: string;
+    type: $Enums.DebtType;
+    balance: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    interestRate: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    minPayment: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    dueDate?: Date | string | null;
+    suggestedPayment?: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    autopay?: boolean;
+    lastSyncedAt?: Date | string | null;
+    createdAt?: Date | string;
+    updatedAt?: Date | string;
+    planEntries?: Prisma.PayoffPlanEntryUncheckedCreateNestedManyWithoutDebtInput;
+    payments?: Prisma.DebtPaymentUncheckedCreateNestedManyWithoutDebtInput;
+    notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutDebtInput;
+};
+export type DebtAccountUpdateInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    plaidAccountId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    name?: Prisma.StringFieldUpdateOperationsInput | string;
+    type?: Prisma.EnumDebtTypeFieldUpdateOperationsInput | $Enums.DebtType;
+    balance?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    interestRate?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    minPayment?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    dueDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    suggestedPayment?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    autopay?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+    lastSyncedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    user?: Prisma.UserUpdateOneRequiredWithoutDebtsNestedInput;
+    plaidItem?: Prisma.PlaidItemUpdateOneWithoutAccountsNestedInput;
+    planEntries?: Prisma.PayoffPlanEntryUpdateManyWithoutDebtNestedInput;
+    payments?: Prisma.DebtPaymentUpdateManyWithoutDebtNestedInput;
+    notifications?: Prisma.NotificationUpdateManyWithoutDebtNestedInput;
+};
+export type DebtAccountUncheckedUpdateInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    userId?: Prisma.StringFieldUpdateOperationsInput | string;
+    plaidItemId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    plaidAccountId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    name?: Prisma.StringFieldUpdateOperationsInput | string;
+    type?: Prisma.EnumDebtTypeFieldUpdateOperationsInput | $Enums.DebtType;
+    balance?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    interestRate?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    minPayment?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    dueDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    suggestedPayment?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    autopay?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+    lastSyncedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    planEntries?: Prisma.PayoffPlanEntryUncheckedUpdateManyWithoutDebtNestedInput;
+    payments?: Prisma.DebtPaymentUncheckedUpdateManyWithoutDebtNestedInput;
+    notifications?: Prisma.NotificationUncheckedUpdateManyWithoutDebtNestedInput;
+};
+export type DebtAccountCreateManyInput = {
+    id?: string;
+    userId: string;
+    plaidItemId?: string | null;
+    plaidAccountId?: string | null;
+    name: string;
+    type: $Enums.DebtType;
+    balance: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    interestRate: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    minPayment: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    dueDate?: Date | string | null;
+    suggestedPayment?: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    autopay?: boolean;
+    lastSyncedAt?: Date | string | null;
+    createdAt?: Date | string;
+    updatedAt?: Date | string;
+};
+export type DebtAccountUpdateManyMutationInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    plaidAccountId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    name?: Prisma.StringFieldUpdateOperationsInput | string;
+    type?: Prisma.EnumDebtTypeFieldUpdateOperationsInput | $Enums.DebtType;
+    balance?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    interestRate?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    minPayment?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    dueDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    suggestedPayment?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    autopay?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+    lastSyncedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+};
+export type DebtAccountUncheckedUpdateManyInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    userId?: Prisma.StringFieldUpdateOperationsInput | string;
+    plaidItemId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    plaidAccountId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    name?: Prisma.StringFieldUpdateOperationsInput | string;
+    type?: Prisma.EnumDebtTypeFieldUpdateOperationsInput | $Enums.DebtType;
+    balance?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    interestRate?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    minPayment?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    dueDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    suggestedPayment?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    autopay?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+    lastSyncedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+};
+export type DebtAccountListRelationFilter = {
+    every?: Prisma.DebtAccountWhereInput;
+    some?: Prisma.DebtAccountWhereInput;
+    none?: Prisma.DebtAccountWhereInput;
+};
+export type DebtAccountOrderByRelationAggregateInput = {
+    _count?: Prisma.SortOrder;
+};
+export type DebtAccountCountOrderByAggregateInput = {
+    id?: Prisma.SortOrder;
+    userId?: Prisma.SortOrder;
+    plaidItemId?: Prisma.SortOrder;
+    plaidAccountId?: Prisma.SortOrder;
+    name?: Prisma.SortOrder;
+    type?: Prisma.SortOrder;
+    balance?: Prisma.SortOrder;
+    interestRate?: Prisma.SortOrder;
+    minPayment?: Prisma.SortOrder;
+    dueDate?: Prisma.SortOrder;
+    suggestedPayment?: Prisma.SortOrder;
+    autopay?: Prisma.SortOrder;
+    lastSyncedAt?: Prisma.SortOrder;
+    createdAt?: Prisma.SortOrder;
+    updatedAt?: Prisma.SortOrder;
+};
+export type DebtAccountAvgOrderByAggregateInput = {
+    balance?: Prisma.SortOrder;
+    interestRate?: Prisma.SortOrder;
+    minPayment?: Prisma.SortOrder;
+    suggestedPayment?: Prisma.SortOrder;
+};
+export type DebtAccountMaxOrderByAggregateInput = {
+    id?: Prisma.SortOrder;
+    userId?: Prisma.SortOrder;
+    plaidItemId?: Prisma.SortOrder;
+    plaidAccountId?: Prisma.SortOrder;
+    name?: Prisma.SortOrder;
+    type?: Prisma.SortOrder;
+    balance?: Prisma.SortOrder;
+    interestRate?: Prisma.SortOrder;
+    minPayment?: Prisma.SortOrder;
+    dueDate?: Prisma.SortOrder;
+    suggestedPayment?: Prisma.SortOrder;
+    autopay?: Prisma.SortOrder;
+    lastSyncedAt?: Prisma.SortOrder;
+    createdAt?: Prisma.SortOrder;
+    updatedAt?: Prisma.SortOrder;
+};
+export type DebtAccountMinOrderByAggregateInput = {
+    id?: Prisma.SortOrder;
+    userId?: Prisma.SortOrder;
+    plaidItemId?: Prisma.SortOrder;
+    plaidAccountId?: Prisma.SortOrder;
+    name?: Prisma.SortOrder;
+    type?: Prisma.SortOrder;
+    balance?: Prisma.SortOrder;
+    interestRate?: Prisma.SortOrder;
+    minPayment?: Prisma.SortOrder;
+    dueDate?: Prisma.SortOrder;
+    suggestedPayment?: Prisma.SortOrder;
+    autopay?: Prisma.SortOrder;
+    lastSyncedAt?: Prisma.SortOrder;
+    createdAt?: Prisma.SortOrder;
+    updatedAt?: Prisma.SortOrder;
+};
+export type DebtAccountSumOrderByAggregateInput = {
+    balance?: Prisma.SortOrder;
+    interestRate?: Prisma.SortOrder;
+    minPayment?: Prisma.SortOrder;
+    suggestedPayment?: Prisma.SortOrder;
+};
+export type DebtAccountScalarRelationFilter = {
+    is?: Prisma.DebtAccountWhereInput;
+    isNot?: Prisma.DebtAccountWhereInput;
+};
+export type DebtAccountNullableScalarRelationFilter = {
+    is?: Prisma.DebtAccountWhereInput | null;
+    isNot?: Prisma.DebtAccountWhereInput | null;
+};
+export type DebtAccountCreateNestedManyWithoutUserInput = {
+    create?: Prisma.XOR<Prisma.DebtAccountCreateWithoutUserInput, Prisma.DebtAccountUncheckedCreateWithoutUserInput> | Prisma.DebtAccountCreateWithoutUserInput[] | Prisma.DebtAccountUncheckedCreateWithoutUserInput[];
+    connectOrCreate?: Prisma.DebtAccountCreateOrConnectWithoutUserInput | Prisma.DebtAccountCreateOrConnectWithoutUserInput[];
+    createMany?: Prisma.DebtAccountCreateManyUserInputEnvelope;
+    connect?: Prisma.DebtAccountWhereUniqueInput | Prisma.DebtAccountWhereUniqueInput[];
+};
+export type DebtAccountUncheckedCreateNestedManyWithoutUserInput = {
+    create?: Prisma.XOR<Prisma.DebtAccountCreateWithoutUserInput, Prisma.DebtAccountUncheckedCreateWithoutUserInput> | Prisma.DebtAccountCreateWithoutUserInput[] | Prisma.DebtAccountUncheckedCreateWithoutUserInput[];
+    connectOrCreate?: Prisma.DebtAccountCreateOrConnectWithoutUserInput | Prisma.DebtAccountCreateOrConnectWithoutUserInput[];
+    createMany?: Prisma.DebtAccountCreateManyUserInputEnvelope;
+    connect?: Prisma.DebtAccountWhereUniqueInput | Prisma.DebtAccountWhereUniqueInput[];
+};
+export type DebtAccountUpdateManyWithoutUserNestedInput = {
+    create?: Prisma.XOR<Prisma.DebtAccountCreateWithoutUserInput, Prisma.DebtAccountUncheckedCreateWithoutUserInput> | Prisma.DebtAccountCreateWithoutUserInput[] | Prisma.DebtAccountUncheckedCreateWithoutUserInput[];
+    connectOrCreate?: Prisma.DebtAccountCreateOrConnectWithoutUserInput | Prisma.DebtAccountCreateOrConnectWithoutUserInput[];
+    upsert?: Prisma.DebtAccountUpsertWithWhereUniqueWithoutUserInput | Prisma.DebtAccountUpsertWithWhereUniqueWithoutUserInput[];
+    createMany?: Prisma.DebtAccountCreateManyUserInputEnvelope;
+    set?: Prisma.DebtAccountWhereUniqueInput | Prisma.DebtAccountWhereUniqueInput[];
+    disconnect?: Prisma.DebtAccountWhereUniqueInput | Prisma.DebtAccountWhereUniqueInput[];
+    delete?: Prisma.DebtAccountWhereUniqueInput | Prisma.DebtAccountWhereUniqueInput[];
+    connect?: Prisma.DebtAccountWhereUniqueInput | Prisma.DebtAccountWhereUniqueInput[];
+    update?: Prisma.DebtAccountUpdateWithWhereUniqueWithoutUserInput | Prisma.DebtAccountUpdateWithWhereUniqueWithoutUserInput[];
+    updateMany?: Prisma.DebtAccountUpdateManyWithWhereWithoutUserInput | Prisma.DebtAccountUpdateManyWithWhereWithoutUserInput[];
+    deleteMany?: Prisma.DebtAccountScalarWhereInput | Prisma.DebtAccountScalarWhereInput[];
+};
+export type DebtAccountUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: Prisma.XOR<Prisma.DebtAccountCreateWithoutUserInput, Prisma.DebtAccountUncheckedCreateWithoutUserInput> | Prisma.DebtAccountCreateWithoutUserInput[] | Prisma.DebtAccountUncheckedCreateWithoutUserInput[];
+    connectOrCreate?: Prisma.DebtAccountCreateOrConnectWithoutUserInput | Prisma.DebtAccountCreateOrConnectWithoutUserInput[];
+    upsert?: Prisma.DebtAccountUpsertWithWhereUniqueWithoutUserInput | Prisma.DebtAccountUpsertWithWhereUniqueWithoutUserInput[];
+    createMany?: Prisma.DebtAccountCreateManyUserInputEnvelope;
+    set?: Prisma.DebtAccountWhereUniqueInput | Prisma.DebtAccountWhereUniqueInput[];
+    disconnect?: Prisma.DebtAccountWhereUniqueInput | Prisma.DebtAccountWhereUniqueInput[];
+    delete?: Prisma.DebtAccountWhereUniqueInput | Prisma.DebtAccountWhereUniqueInput[];
+    connect?: Prisma.DebtAccountWhereUniqueInput | Prisma.DebtAccountWhereUniqueInput[];
+    update?: Prisma.DebtAccountUpdateWithWhereUniqueWithoutUserInput | Prisma.DebtAccountUpdateWithWhereUniqueWithoutUserInput[];
+    updateMany?: Prisma.DebtAccountUpdateManyWithWhereWithoutUserInput | Prisma.DebtAccountUpdateManyWithWhereWithoutUserInput[];
+    deleteMany?: Prisma.DebtAccountScalarWhereInput | Prisma.DebtAccountScalarWhereInput[];
+};
+export type EnumDebtTypeFieldUpdateOperationsInput = {
+    set?: $Enums.DebtType;
+};
+export type DecimalFieldUpdateOperationsInput = {
+    set?: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    increment?: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    decrement?: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    multiply?: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    divide?: runtime.Decimal | runtime.DecimalJsLike | number | string;
+};
+export type NullableDateTimeFieldUpdateOperationsInput = {
+    set?: Date | string | null;
+};
+export type BoolFieldUpdateOperationsInput = {
+    set?: boolean;
+};
+export type DebtAccountCreateNestedOneWithoutPaymentsInput = {
+    create?: Prisma.XOR<Prisma.DebtAccountCreateWithoutPaymentsInput, Prisma.DebtAccountUncheckedCreateWithoutPaymentsInput>;
+    connectOrCreate?: Prisma.DebtAccountCreateOrConnectWithoutPaymentsInput;
+    connect?: Prisma.DebtAccountWhereUniqueInput;
+};
+export type DebtAccountUpdateOneRequiredWithoutPaymentsNestedInput = {
+    create?: Prisma.XOR<Prisma.DebtAccountCreateWithoutPaymentsInput, Prisma.DebtAccountUncheckedCreateWithoutPaymentsInput>;
+    connectOrCreate?: Prisma.DebtAccountCreateOrConnectWithoutPaymentsInput;
+    upsert?: Prisma.DebtAccountUpsertWithoutPaymentsInput;
+    connect?: Prisma.DebtAccountWhereUniqueInput;
+    update?: Prisma.XOR<Prisma.XOR<Prisma.DebtAccountUpdateToOneWithWhereWithoutPaymentsInput, Prisma.DebtAccountUpdateWithoutPaymentsInput>, Prisma.DebtAccountUncheckedUpdateWithoutPaymentsInput>;
+};
+export type DebtAccountCreateNestedOneWithoutPlanEntriesInput = {
+    create?: Prisma.XOR<Prisma.DebtAccountCreateWithoutPlanEntriesInput, Prisma.DebtAccountUncheckedCreateWithoutPlanEntriesInput>;
+    connectOrCreate?: Prisma.DebtAccountCreateOrConnectWithoutPlanEntriesInput;
+    connect?: Prisma.DebtAccountWhereUniqueInput;
+};
+export type DebtAccountUpdateOneRequiredWithoutPlanEntriesNestedInput = {
+    create?: Prisma.XOR<Prisma.DebtAccountCreateWithoutPlanEntriesInput, Prisma.DebtAccountUncheckedCreateWithoutPlanEntriesInput>;
+    connectOrCreate?: Prisma.DebtAccountCreateOrConnectWithoutPlanEntriesInput;
+    upsert?: Prisma.DebtAccountUpsertWithoutPlanEntriesInput;
+    connect?: Prisma.DebtAccountWhereUniqueInput;
+    update?: Prisma.XOR<Prisma.XOR<Prisma.DebtAccountUpdateToOneWithWhereWithoutPlanEntriesInput, Prisma.DebtAccountUpdateWithoutPlanEntriesInput>, Prisma.DebtAccountUncheckedUpdateWithoutPlanEntriesInput>;
+};
+export type DebtAccountCreateNestedOneWithoutNotificationsInput = {
+    create?: Prisma.XOR<Prisma.DebtAccountCreateWithoutNotificationsInput, Prisma.DebtAccountUncheckedCreateWithoutNotificationsInput>;
+    connectOrCreate?: Prisma.DebtAccountCreateOrConnectWithoutNotificationsInput;
+    connect?: Prisma.DebtAccountWhereUniqueInput;
+};
+export type DebtAccountUpdateOneWithoutNotificationsNestedInput = {
+    create?: Prisma.XOR<Prisma.DebtAccountCreateWithoutNotificationsInput, Prisma.DebtAccountUncheckedCreateWithoutNotificationsInput>;
+    connectOrCreate?: Prisma.DebtAccountCreateOrConnectWithoutNotificationsInput;
+    upsert?: Prisma.DebtAccountUpsertWithoutNotificationsInput;
+    disconnect?: Prisma.DebtAccountWhereInput | boolean;
+    delete?: Prisma.DebtAccountWhereInput | boolean;
+    connect?: Prisma.DebtAccountWhereUniqueInput;
+    update?: Prisma.XOR<Prisma.XOR<Prisma.DebtAccountUpdateToOneWithWhereWithoutNotificationsInput, Prisma.DebtAccountUpdateWithoutNotificationsInput>, Prisma.DebtAccountUncheckedUpdateWithoutNotificationsInput>;
+};
+export type DebtAccountCreateNestedManyWithoutPlaidItemInput = {
+    create?: Prisma.XOR<Prisma.DebtAccountCreateWithoutPlaidItemInput, Prisma.DebtAccountUncheckedCreateWithoutPlaidItemInput> | Prisma.DebtAccountCreateWithoutPlaidItemInput[] | Prisma.DebtAccountUncheckedCreateWithoutPlaidItemInput[];
+    connectOrCreate?: Prisma.DebtAccountCreateOrConnectWithoutPlaidItemInput | Prisma.DebtAccountCreateOrConnectWithoutPlaidItemInput[];
+    createMany?: Prisma.DebtAccountCreateManyPlaidItemInputEnvelope;
+    connect?: Prisma.DebtAccountWhereUniqueInput | Prisma.DebtAccountWhereUniqueInput[];
+};
+export type DebtAccountUncheckedCreateNestedManyWithoutPlaidItemInput = {
+    create?: Prisma.XOR<Prisma.DebtAccountCreateWithoutPlaidItemInput, Prisma.DebtAccountUncheckedCreateWithoutPlaidItemInput> | Prisma.DebtAccountCreateWithoutPlaidItemInput[] | Prisma.DebtAccountUncheckedCreateWithoutPlaidItemInput[];
+    connectOrCreate?: Prisma.DebtAccountCreateOrConnectWithoutPlaidItemInput | Prisma.DebtAccountCreateOrConnectWithoutPlaidItemInput[];
+    createMany?: Prisma.DebtAccountCreateManyPlaidItemInputEnvelope;
+    connect?: Prisma.DebtAccountWhereUniqueInput | Prisma.DebtAccountWhereUniqueInput[];
+};
+export type DebtAccountUpdateManyWithoutPlaidItemNestedInput = {
+    create?: Prisma.XOR<Prisma.DebtAccountCreateWithoutPlaidItemInput, Prisma.DebtAccountUncheckedCreateWithoutPlaidItemInput> | Prisma.DebtAccountCreateWithoutPlaidItemInput[] | Prisma.DebtAccountUncheckedCreateWithoutPlaidItemInput[];
+    connectOrCreate?: Prisma.DebtAccountCreateOrConnectWithoutPlaidItemInput | Prisma.DebtAccountCreateOrConnectWithoutPlaidItemInput[];
+    upsert?: Prisma.DebtAccountUpsertWithWhereUniqueWithoutPlaidItemInput | Prisma.DebtAccountUpsertWithWhereUniqueWithoutPlaidItemInput[];
+    createMany?: Prisma.DebtAccountCreateManyPlaidItemInputEnvelope;
+    set?: Prisma.DebtAccountWhereUniqueInput | Prisma.DebtAccountWhereUniqueInput[];
+    disconnect?: Prisma.DebtAccountWhereUniqueInput | Prisma.DebtAccountWhereUniqueInput[];
+    delete?: Prisma.DebtAccountWhereUniqueInput | Prisma.DebtAccountWhereUniqueInput[];
+    connect?: Prisma.DebtAccountWhereUniqueInput | Prisma.DebtAccountWhereUniqueInput[];
+    update?: Prisma.DebtAccountUpdateWithWhereUniqueWithoutPlaidItemInput | Prisma.DebtAccountUpdateWithWhereUniqueWithoutPlaidItemInput[];
+    updateMany?: Prisma.DebtAccountUpdateManyWithWhereWithoutPlaidItemInput | Prisma.DebtAccountUpdateManyWithWhereWithoutPlaidItemInput[];
+    deleteMany?: Prisma.DebtAccountScalarWhereInput | Prisma.DebtAccountScalarWhereInput[];
+};
+export type DebtAccountUncheckedUpdateManyWithoutPlaidItemNestedInput = {
+    create?: Prisma.XOR<Prisma.DebtAccountCreateWithoutPlaidItemInput, Prisma.DebtAccountUncheckedCreateWithoutPlaidItemInput> | Prisma.DebtAccountCreateWithoutPlaidItemInput[] | Prisma.DebtAccountUncheckedCreateWithoutPlaidItemInput[];
+    connectOrCreate?: Prisma.DebtAccountCreateOrConnectWithoutPlaidItemInput | Prisma.DebtAccountCreateOrConnectWithoutPlaidItemInput[];
+    upsert?: Prisma.DebtAccountUpsertWithWhereUniqueWithoutPlaidItemInput | Prisma.DebtAccountUpsertWithWhereUniqueWithoutPlaidItemInput[];
+    createMany?: Prisma.DebtAccountCreateManyPlaidItemInputEnvelope;
+    set?: Prisma.DebtAccountWhereUniqueInput | Prisma.DebtAccountWhereUniqueInput[];
+    disconnect?: Prisma.DebtAccountWhereUniqueInput | Prisma.DebtAccountWhereUniqueInput[];
+    delete?: Prisma.DebtAccountWhereUniqueInput | Prisma.DebtAccountWhereUniqueInput[];
+    connect?: Prisma.DebtAccountWhereUniqueInput | Prisma.DebtAccountWhereUniqueInput[];
+    update?: Prisma.DebtAccountUpdateWithWhereUniqueWithoutPlaidItemInput | Prisma.DebtAccountUpdateWithWhereUniqueWithoutPlaidItemInput[];
+    updateMany?: Prisma.DebtAccountUpdateManyWithWhereWithoutPlaidItemInput | Prisma.DebtAccountUpdateManyWithWhereWithoutPlaidItemInput[];
+    deleteMany?: Prisma.DebtAccountScalarWhereInput | Prisma.DebtAccountScalarWhereInput[];
+};
+export type DebtAccountCreateWithoutUserInput = {
+    id?: string;
+    plaidAccountId?: string | null;
+    name: string;
+    type: $Enums.DebtType;
+    balance: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    interestRate: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    minPayment: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    dueDate?: Date | string | null;
+    suggestedPayment?: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    autopay?: boolean;
+    lastSyncedAt?: Date | string | null;
+    createdAt?: Date | string;
+    updatedAt?: Date | string;
+    plaidItem?: Prisma.PlaidItemCreateNestedOneWithoutAccountsInput;
+    planEntries?: Prisma.PayoffPlanEntryCreateNestedManyWithoutDebtInput;
+    payments?: Prisma.DebtPaymentCreateNestedManyWithoutDebtInput;
+    notifications?: Prisma.NotificationCreateNestedManyWithoutDebtInput;
+};
+export type DebtAccountUncheckedCreateWithoutUserInput = {
+    id?: string;
+    plaidItemId?: string | null;
+    plaidAccountId?: string | null;
+    name: string;
+    type: $Enums.DebtType;
+    balance: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    interestRate: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    minPayment: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    dueDate?: Date | string | null;
+    suggestedPayment?: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    autopay?: boolean;
+    lastSyncedAt?: Date | string | null;
+    createdAt?: Date | string;
+    updatedAt?: Date | string;
+    planEntries?: Prisma.PayoffPlanEntryUncheckedCreateNestedManyWithoutDebtInput;
+    payments?: Prisma.DebtPaymentUncheckedCreateNestedManyWithoutDebtInput;
+    notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutDebtInput;
+};
+export type DebtAccountCreateOrConnectWithoutUserInput = {
+    where: Prisma.DebtAccountWhereUniqueInput;
+    create: Prisma.XOR<Prisma.DebtAccountCreateWithoutUserInput, Prisma.DebtAccountUncheckedCreateWithoutUserInput>;
+};
+export type DebtAccountCreateManyUserInputEnvelope = {
+    data: Prisma.DebtAccountCreateManyUserInput | Prisma.DebtAccountCreateManyUserInput[];
+    skipDuplicates?: boolean;
+};
+export type DebtAccountUpsertWithWhereUniqueWithoutUserInput = {
+    where: Prisma.DebtAccountWhereUniqueInput;
+    update: Prisma.XOR<Prisma.DebtAccountUpdateWithoutUserInput, Prisma.DebtAccountUncheckedUpdateWithoutUserInput>;
+    create: Prisma.XOR<Prisma.DebtAccountCreateWithoutUserInput, Prisma.DebtAccountUncheckedCreateWithoutUserInput>;
+};
+export type DebtAccountUpdateWithWhereUniqueWithoutUserInput = {
+    where: Prisma.DebtAccountWhereUniqueInput;
+    data: Prisma.XOR<Prisma.DebtAccountUpdateWithoutUserInput, Prisma.DebtAccountUncheckedUpdateWithoutUserInput>;
+};
+export type DebtAccountUpdateManyWithWhereWithoutUserInput = {
+    where: Prisma.DebtAccountScalarWhereInput;
+    data: Prisma.XOR<Prisma.DebtAccountUpdateManyMutationInput, Prisma.DebtAccountUncheckedUpdateManyWithoutUserInput>;
+};
+export type DebtAccountScalarWhereInput = {
+    AND?: Prisma.DebtAccountScalarWhereInput | Prisma.DebtAccountScalarWhereInput[];
+    OR?: Prisma.DebtAccountScalarWhereInput[];
+    NOT?: Prisma.DebtAccountScalarWhereInput | Prisma.DebtAccountScalarWhereInput[];
+    id?: Prisma.StringFilter<"DebtAccount"> | string;
+    userId?: Prisma.StringFilter<"DebtAccount"> | string;
+    plaidItemId?: Prisma.StringNullableFilter<"DebtAccount"> | string | null;
+    plaidAccountId?: Prisma.StringNullableFilter<"DebtAccount"> | string | null;
+    name?: Prisma.StringFilter<"DebtAccount"> | string;
+    type?: Prisma.EnumDebtTypeFilter<"DebtAccount"> | $Enums.DebtType;
+    balance?: Prisma.DecimalFilter<"DebtAccount"> | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    interestRate?: Prisma.DecimalFilter<"DebtAccount"> | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    minPayment?: Prisma.DecimalFilter<"DebtAccount"> | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    dueDate?: Prisma.DateTimeNullableFilter<"DebtAccount"> | Date | string | null;
+    suggestedPayment?: Prisma.DecimalFilter<"DebtAccount"> | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    autopay?: Prisma.BoolFilter<"DebtAccount"> | boolean;
+    lastSyncedAt?: Prisma.DateTimeNullableFilter<"DebtAccount"> | Date | string | null;
+    createdAt?: Prisma.DateTimeFilter<"DebtAccount"> | Date | string;
+    updatedAt?: Prisma.DateTimeFilter<"DebtAccount"> | Date | string;
+};
+export type DebtAccountCreateWithoutPaymentsInput = {
+    id?: string;
+    plaidAccountId?: string | null;
+    name: string;
+    type: $Enums.DebtType;
+    balance: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    interestRate: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    minPayment: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    dueDate?: Date | string | null;
+    suggestedPayment?: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    autopay?: boolean;
+    lastSyncedAt?: Date | string | null;
+    createdAt?: Date | string;
+    updatedAt?: Date | string;
+    user: Prisma.UserCreateNestedOneWithoutDebtsInput;
+    plaidItem?: Prisma.PlaidItemCreateNestedOneWithoutAccountsInput;
+    planEntries?: Prisma.PayoffPlanEntryCreateNestedManyWithoutDebtInput;
+    notifications?: Prisma.NotificationCreateNestedManyWithoutDebtInput;
+};
+export type DebtAccountUncheckedCreateWithoutPaymentsInput = {
+    id?: string;
+    userId: string;
+    plaidItemId?: string | null;
+    plaidAccountId?: string | null;
+    name: string;
+    type: $Enums.DebtType;
+    balance: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    interestRate: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    minPayment: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    dueDate?: Date | string | null;
+    suggestedPayment?: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    autopay?: boolean;
+    lastSyncedAt?: Date | string | null;
+    createdAt?: Date | string;
+    updatedAt?: Date | string;
+    planEntries?: Prisma.PayoffPlanEntryUncheckedCreateNestedManyWithoutDebtInput;
+    notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutDebtInput;
+};
+export type DebtAccountCreateOrConnectWithoutPaymentsInput = {
+    where: Prisma.DebtAccountWhereUniqueInput;
+    create: Prisma.XOR<Prisma.DebtAccountCreateWithoutPaymentsInput, Prisma.DebtAccountUncheckedCreateWithoutPaymentsInput>;
+};
+export type DebtAccountUpsertWithoutPaymentsInput = {
+    update: Prisma.XOR<Prisma.DebtAccountUpdateWithoutPaymentsInput, Prisma.DebtAccountUncheckedUpdateWithoutPaymentsInput>;
+    create: Prisma.XOR<Prisma.DebtAccountCreateWithoutPaymentsInput, Prisma.DebtAccountUncheckedCreateWithoutPaymentsInput>;
+    where?: Prisma.DebtAccountWhereInput;
+};
+export type DebtAccountUpdateToOneWithWhereWithoutPaymentsInput = {
+    where?: Prisma.DebtAccountWhereInput;
+    data: Prisma.XOR<Prisma.DebtAccountUpdateWithoutPaymentsInput, Prisma.DebtAccountUncheckedUpdateWithoutPaymentsInput>;
+};
+export type DebtAccountUpdateWithoutPaymentsInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    plaidAccountId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    name?: Prisma.StringFieldUpdateOperationsInput | string;
+    type?: Prisma.EnumDebtTypeFieldUpdateOperationsInput | $Enums.DebtType;
+    balance?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    interestRate?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    minPayment?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    dueDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    suggestedPayment?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    autopay?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+    lastSyncedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    user?: Prisma.UserUpdateOneRequiredWithoutDebtsNestedInput;
+    plaidItem?: Prisma.PlaidItemUpdateOneWithoutAccountsNestedInput;
+    planEntries?: Prisma.PayoffPlanEntryUpdateManyWithoutDebtNestedInput;
+    notifications?: Prisma.NotificationUpdateManyWithoutDebtNestedInput;
+};
+export type DebtAccountUncheckedUpdateWithoutPaymentsInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    userId?: Prisma.StringFieldUpdateOperationsInput | string;
+    plaidItemId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    plaidAccountId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    name?: Prisma.StringFieldUpdateOperationsInput | string;
+    type?: Prisma.EnumDebtTypeFieldUpdateOperationsInput | $Enums.DebtType;
+    balance?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    interestRate?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    minPayment?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    dueDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    suggestedPayment?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    autopay?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+    lastSyncedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    planEntries?: Prisma.PayoffPlanEntryUncheckedUpdateManyWithoutDebtNestedInput;
+    notifications?: Prisma.NotificationUncheckedUpdateManyWithoutDebtNestedInput;
+};
+export type DebtAccountCreateWithoutPlanEntriesInput = {
+    id?: string;
+    plaidAccountId?: string | null;
+    name: string;
+    type: $Enums.DebtType;
+    balance: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    interestRate: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    minPayment: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    dueDate?: Date | string | null;
+    suggestedPayment?: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    autopay?: boolean;
+    lastSyncedAt?: Date | string | null;
+    createdAt?: Date | string;
+    updatedAt?: Date | string;
+    user: Prisma.UserCreateNestedOneWithoutDebtsInput;
+    plaidItem?: Prisma.PlaidItemCreateNestedOneWithoutAccountsInput;
+    payments?: Prisma.DebtPaymentCreateNestedManyWithoutDebtInput;
+    notifications?: Prisma.NotificationCreateNestedManyWithoutDebtInput;
+};
+export type DebtAccountUncheckedCreateWithoutPlanEntriesInput = {
+    id?: string;
+    userId: string;
+    plaidItemId?: string | null;
+    plaidAccountId?: string | null;
+    name: string;
+    type: $Enums.DebtType;
+    balance: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    interestRate: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    minPayment: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    dueDate?: Date | string | null;
+    suggestedPayment?: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    autopay?: boolean;
+    lastSyncedAt?: Date | string | null;
+    createdAt?: Date | string;
+    updatedAt?: Date | string;
+    payments?: Prisma.DebtPaymentUncheckedCreateNestedManyWithoutDebtInput;
+    notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutDebtInput;
+};
+export type DebtAccountCreateOrConnectWithoutPlanEntriesInput = {
+    where: Prisma.DebtAccountWhereUniqueInput;
+    create: Prisma.XOR<Prisma.DebtAccountCreateWithoutPlanEntriesInput, Prisma.DebtAccountUncheckedCreateWithoutPlanEntriesInput>;
+};
+export type DebtAccountUpsertWithoutPlanEntriesInput = {
+    update: Prisma.XOR<Prisma.DebtAccountUpdateWithoutPlanEntriesInput, Prisma.DebtAccountUncheckedUpdateWithoutPlanEntriesInput>;
+    create: Prisma.XOR<Prisma.DebtAccountCreateWithoutPlanEntriesInput, Prisma.DebtAccountUncheckedCreateWithoutPlanEntriesInput>;
+    where?: Prisma.DebtAccountWhereInput;
+};
+export type DebtAccountUpdateToOneWithWhereWithoutPlanEntriesInput = {
+    where?: Prisma.DebtAccountWhereInput;
+    data: Prisma.XOR<Prisma.DebtAccountUpdateWithoutPlanEntriesInput, Prisma.DebtAccountUncheckedUpdateWithoutPlanEntriesInput>;
+};
+export type DebtAccountUpdateWithoutPlanEntriesInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    plaidAccountId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    name?: Prisma.StringFieldUpdateOperationsInput | string;
+    type?: Prisma.EnumDebtTypeFieldUpdateOperationsInput | $Enums.DebtType;
+    balance?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    interestRate?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    minPayment?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    dueDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    suggestedPayment?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    autopay?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+    lastSyncedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    user?: Prisma.UserUpdateOneRequiredWithoutDebtsNestedInput;
+    plaidItem?: Prisma.PlaidItemUpdateOneWithoutAccountsNestedInput;
+    payments?: Prisma.DebtPaymentUpdateManyWithoutDebtNestedInput;
+    notifications?: Prisma.NotificationUpdateManyWithoutDebtNestedInput;
+};
+export type DebtAccountUncheckedUpdateWithoutPlanEntriesInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    userId?: Prisma.StringFieldUpdateOperationsInput | string;
+    plaidItemId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    plaidAccountId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    name?: Prisma.StringFieldUpdateOperationsInput | string;
+    type?: Prisma.EnumDebtTypeFieldUpdateOperationsInput | $Enums.DebtType;
+    balance?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    interestRate?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    minPayment?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    dueDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    suggestedPayment?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    autopay?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+    lastSyncedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    payments?: Prisma.DebtPaymentUncheckedUpdateManyWithoutDebtNestedInput;
+    notifications?: Prisma.NotificationUncheckedUpdateManyWithoutDebtNestedInput;
+};
+export type DebtAccountCreateWithoutNotificationsInput = {
+    id?: string;
+    plaidAccountId?: string | null;
+    name: string;
+    type: $Enums.DebtType;
+    balance: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    interestRate: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    minPayment: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    dueDate?: Date | string | null;
+    suggestedPayment?: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    autopay?: boolean;
+    lastSyncedAt?: Date | string | null;
+    createdAt?: Date | string;
+    updatedAt?: Date | string;
+    user: Prisma.UserCreateNestedOneWithoutDebtsInput;
+    plaidItem?: Prisma.PlaidItemCreateNestedOneWithoutAccountsInput;
+    planEntries?: Prisma.PayoffPlanEntryCreateNestedManyWithoutDebtInput;
+    payments?: Prisma.DebtPaymentCreateNestedManyWithoutDebtInput;
+};
+export type DebtAccountUncheckedCreateWithoutNotificationsInput = {
+    id?: string;
+    userId: string;
+    plaidItemId?: string | null;
+    plaidAccountId?: string | null;
+    name: string;
+    type: $Enums.DebtType;
+    balance: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    interestRate: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    minPayment: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    dueDate?: Date | string | null;
+    suggestedPayment?: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    autopay?: boolean;
+    lastSyncedAt?: Date | string | null;
+    createdAt?: Date | string;
+    updatedAt?: Date | string;
+    planEntries?: Prisma.PayoffPlanEntryUncheckedCreateNestedManyWithoutDebtInput;
+    payments?: Prisma.DebtPaymentUncheckedCreateNestedManyWithoutDebtInput;
+};
+export type DebtAccountCreateOrConnectWithoutNotificationsInput = {
+    where: Prisma.DebtAccountWhereUniqueInput;
+    create: Prisma.XOR<Prisma.DebtAccountCreateWithoutNotificationsInput, Prisma.DebtAccountUncheckedCreateWithoutNotificationsInput>;
+};
+export type DebtAccountUpsertWithoutNotificationsInput = {
+    update: Prisma.XOR<Prisma.DebtAccountUpdateWithoutNotificationsInput, Prisma.DebtAccountUncheckedUpdateWithoutNotificationsInput>;
+    create: Prisma.XOR<Prisma.DebtAccountCreateWithoutNotificationsInput, Prisma.DebtAccountUncheckedCreateWithoutNotificationsInput>;
+    where?: Prisma.DebtAccountWhereInput;
+};
+export type DebtAccountUpdateToOneWithWhereWithoutNotificationsInput = {
+    where?: Prisma.DebtAccountWhereInput;
+    data: Prisma.XOR<Prisma.DebtAccountUpdateWithoutNotificationsInput, Prisma.DebtAccountUncheckedUpdateWithoutNotificationsInput>;
+};
+export type DebtAccountUpdateWithoutNotificationsInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    plaidAccountId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    name?: Prisma.StringFieldUpdateOperationsInput | string;
+    type?: Prisma.EnumDebtTypeFieldUpdateOperationsInput | $Enums.DebtType;
+    balance?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    interestRate?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    minPayment?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    dueDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    suggestedPayment?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    autopay?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+    lastSyncedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    user?: Prisma.UserUpdateOneRequiredWithoutDebtsNestedInput;
+    plaidItem?: Prisma.PlaidItemUpdateOneWithoutAccountsNestedInput;
+    planEntries?: Prisma.PayoffPlanEntryUpdateManyWithoutDebtNestedInput;
+    payments?: Prisma.DebtPaymentUpdateManyWithoutDebtNestedInput;
+};
+export type DebtAccountUncheckedUpdateWithoutNotificationsInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    userId?: Prisma.StringFieldUpdateOperationsInput | string;
+    plaidItemId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    plaidAccountId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    name?: Prisma.StringFieldUpdateOperationsInput | string;
+    type?: Prisma.EnumDebtTypeFieldUpdateOperationsInput | $Enums.DebtType;
+    balance?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    interestRate?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    minPayment?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    dueDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    suggestedPayment?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    autopay?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+    lastSyncedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    planEntries?: Prisma.PayoffPlanEntryUncheckedUpdateManyWithoutDebtNestedInput;
+    payments?: Prisma.DebtPaymentUncheckedUpdateManyWithoutDebtNestedInput;
+};
+export type DebtAccountCreateWithoutPlaidItemInput = {
+    id?: string;
+    plaidAccountId?: string | null;
+    name: string;
+    type: $Enums.DebtType;
+    balance: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    interestRate: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    minPayment: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    dueDate?: Date | string | null;
+    suggestedPayment?: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    autopay?: boolean;
+    lastSyncedAt?: Date | string | null;
+    createdAt?: Date | string;
+    updatedAt?: Date | string;
+    user: Prisma.UserCreateNestedOneWithoutDebtsInput;
+    planEntries?: Prisma.PayoffPlanEntryCreateNestedManyWithoutDebtInput;
+    payments?: Prisma.DebtPaymentCreateNestedManyWithoutDebtInput;
+    notifications?: Prisma.NotificationCreateNestedManyWithoutDebtInput;
+};
+export type DebtAccountUncheckedCreateWithoutPlaidItemInput = {
+    id?: string;
+    userId: string;
+    plaidAccountId?: string | null;
+    name: string;
+    type: $Enums.DebtType;
+    balance: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    interestRate: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    minPayment: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    dueDate?: Date | string | null;
+    suggestedPayment?: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    autopay?: boolean;
+    lastSyncedAt?: Date | string | null;
+    createdAt?: Date | string;
+    updatedAt?: Date | string;
+    planEntries?: Prisma.PayoffPlanEntryUncheckedCreateNestedManyWithoutDebtInput;
+    payments?: Prisma.DebtPaymentUncheckedCreateNestedManyWithoutDebtInput;
+    notifications?: Prisma.NotificationUncheckedCreateNestedManyWithoutDebtInput;
+};
+export type DebtAccountCreateOrConnectWithoutPlaidItemInput = {
+    where: Prisma.DebtAccountWhereUniqueInput;
+    create: Prisma.XOR<Prisma.DebtAccountCreateWithoutPlaidItemInput, Prisma.DebtAccountUncheckedCreateWithoutPlaidItemInput>;
+};
+export type DebtAccountCreateManyPlaidItemInputEnvelope = {
+    data: Prisma.DebtAccountCreateManyPlaidItemInput | Prisma.DebtAccountCreateManyPlaidItemInput[];
+    skipDuplicates?: boolean;
+};
+export type DebtAccountUpsertWithWhereUniqueWithoutPlaidItemInput = {
+    where: Prisma.DebtAccountWhereUniqueInput;
+    update: Prisma.XOR<Prisma.DebtAccountUpdateWithoutPlaidItemInput, Prisma.DebtAccountUncheckedUpdateWithoutPlaidItemInput>;
+    create: Prisma.XOR<Prisma.DebtAccountCreateWithoutPlaidItemInput, Prisma.DebtAccountUncheckedCreateWithoutPlaidItemInput>;
+};
+export type DebtAccountUpdateWithWhereUniqueWithoutPlaidItemInput = {
+    where: Prisma.DebtAccountWhereUniqueInput;
+    data: Prisma.XOR<Prisma.DebtAccountUpdateWithoutPlaidItemInput, Prisma.DebtAccountUncheckedUpdateWithoutPlaidItemInput>;
+};
+export type DebtAccountUpdateManyWithWhereWithoutPlaidItemInput = {
+    where: Prisma.DebtAccountScalarWhereInput;
+    data: Prisma.XOR<Prisma.DebtAccountUpdateManyMutationInput, Prisma.DebtAccountUncheckedUpdateManyWithoutPlaidItemInput>;
+};
+export type DebtAccountCreateManyUserInput = {
+    id?: string;
+    plaidItemId?: string | null;
+    plaidAccountId?: string | null;
+    name: string;
+    type: $Enums.DebtType;
+    balance: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    interestRate: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    minPayment: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    dueDate?: Date | string | null;
+    suggestedPayment?: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    autopay?: boolean;
+    lastSyncedAt?: Date | string | null;
+    createdAt?: Date | string;
+    updatedAt?: Date | string;
+};
+export type DebtAccountUpdateWithoutUserInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    plaidAccountId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    name?: Prisma.StringFieldUpdateOperationsInput | string;
+    type?: Prisma.EnumDebtTypeFieldUpdateOperationsInput | $Enums.DebtType;
+    balance?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    interestRate?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    minPayment?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    dueDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    suggestedPayment?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    autopay?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+    lastSyncedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    plaidItem?: Prisma.PlaidItemUpdateOneWithoutAccountsNestedInput;
+    planEntries?: Prisma.PayoffPlanEntryUpdateManyWithoutDebtNestedInput;
+    payments?: Prisma.DebtPaymentUpdateManyWithoutDebtNestedInput;
+    notifications?: Prisma.NotificationUpdateManyWithoutDebtNestedInput;
+};
+export type DebtAccountUncheckedUpdateWithoutUserInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    plaidItemId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    plaidAccountId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    name?: Prisma.StringFieldUpdateOperationsInput | string;
+    type?: Prisma.EnumDebtTypeFieldUpdateOperationsInput | $Enums.DebtType;
+    balance?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    interestRate?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    minPayment?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    dueDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    suggestedPayment?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    autopay?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+    lastSyncedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    planEntries?: Prisma.PayoffPlanEntryUncheckedUpdateManyWithoutDebtNestedInput;
+    payments?: Prisma.DebtPaymentUncheckedUpdateManyWithoutDebtNestedInput;
+    notifications?: Prisma.NotificationUncheckedUpdateManyWithoutDebtNestedInput;
+};
+export type DebtAccountUncheckedUpdateManyWithoutUserInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    plaidItemId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    plaidAccountId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    name?: Prisma.StringFieldUpdateOperationsInput | string;
+    type?: Prisma.EnumDebtTypeFieldUpdateOperationsInput | $Enums.DebtType;
+    balance?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    interestRate?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    minPayment?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    dueDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    suggestedPayment?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    autopay?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+    lastSyncedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+};
+export type DebtAccountCreateManyPlaidItemInput = {
+    id?: string;
+    userId: string;
+    plaidAccountId?: string | null;
+    name: string;
+    type: $Enums.DebtType;
+    balance: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    interestRate: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    minPayment: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    dueDate?: Date | string | null;
+    suggestedPayment?: runtime.Decimal | runtime.DecimalJsLike | number | string;
+    autopay?: boolean;
+    lastSyncedAt?: Date | string | null;
+    createdAt?: Date | string;
+    updatedAt?: Date | string;
+};
+export type DebtAccountUpdateWithoutPlaidItemInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    plaidAccountId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    name?: Prisma.StringFieldUpdateOperationsInput | string;
+    type?: Prisma.EnumDebtTypeFieldUpdateOperationsInput | $Enums.DebtType;
+    balance?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    interestRate?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    minPayment?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    dueDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    suggestedPayment?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    autopay?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+    lastSyncedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    user?: Prisma.UserUpdateOneRequiredWithoutDebtsNestedInput;
+    planEntries?: Prisma.PayoffPlanEntryUpdateManyWithoutDebtNestedInput;
+    payments?: Prisma.DebtPaymentUpdateManyWithoutDebtNestedInput;
+    notifications?: Prisma.NotificationUpdateManyWithoutDebtNestedInput;
+};
+export type DebtAccountUncheckedUpdateWithoutPlaidItemInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    userId?: Prisma.StringFieldUpdateOperationsInput | string;
+    plaidAccountId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    name?: Prisma.StringFieldUpdateOperationsInput | string;
+    type?: Prisma.EnumDebtTypeFieldUpdateOperationsInput | $Enums.DebtType;
+    balance?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    interestRate?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    minPayment?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    dueDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    suggestedPayment?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    autopay?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+    lastSyncedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    planEntries?: Prisma.PayoffPlanEntryUncheckedUpdateManyWithoutDebtNestedInput;
+    payments?: Prisma.DebtPaymentUncheckedUpdateManyWithoutDebtNestedInput;
+    notifications?: Prisma.NotificationUncheckedUpdateManyWithoutDebtNestedInput;
+};
+export type DebtAccountUncheckedUpdateManyWithoutPlaidItemInput = {
+    id?: Prisma.StringFieldUpdateOperationsInput | string;
+    userId?: Prisma.StringFieldUpdateOperationsInput | string;
+    plaidAccountId?: Prisma.NullableStringFieldUpdateOperationsInput | string | null;
+    name?: Prisma.StringFieldUpdateOperationsInput | string;
+    type?: Prisma.EnumDebtTypeFieldUpdateOperationsInput | $Enums.DebtType;
+    balance?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    interestRate?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    minPayment?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    dueDate?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    suggestedPayment?: Prisma.DecimalFieldUpdateOperationsInput | runtime.Decimal | runtime.DecimalJsLike | number | string;
+    autopay?: Prisma.BoolFieldUpdateOperationsInput | boolean;
+    lastSyncedAt?: Prisma.NullableDateTimeFieldUpdateOperationsInput | Date | string | null;
+    createdAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+    updatedAt?: Prisma.DateTimeFieldUpdateOperationsInput | Date | string;
+};
+/**
+ * Count Type DebtAccountCountOutputType
+ */
+export type DebtAccountCountOutputType = {
+    planEntries: number;
+    payments: number;
+    notifications: number;
+};
+export type DebtAccountCountOutputTypeSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    planEntries?: boolean | DebtAccountCountOutputTypeCountPlanEntriesArgs;
+    payments?: boolean | DebtAccountCountOutputTypeCountPaymentsArgs;
+    notifications?: boolean | DebtAccountCountOutputTypeCountNotificationsArgs;
+};
+/**
+ * DebtAccountCountOutputType without action
+ */
+export type DebtAccountCountOutputTypeDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DebtAccountCountOutputType
+     */
+    select?: Prisma.DebtAccountCountOutputTypeSelect<ExtArgs> | null;
+};
+/**
+ * DebtAccountCountOutputType without action
+ */
+export type DebtAccountCountOutputTypeCountPlanEntriesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    where?: Prisma.PayoffPlanEntryWhereInput;
+};
+/**
+ * DebtAccountCountOutputType without action
+ */
+export type DebtAccountCountOutputTypeCountPaymentsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    where?: Prisma.DebtPaymentWhereInput;
+};
+/**
+ * DebtAccountCountOutputType without action
+ */
+export type DebtAccountCountOutputTypeCountNotificationsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    where?: Prisma.NotificationWhereInput;
+};
+export type DebtAccountSelect<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+    id?: boolean;
+    userId?: boolean;
+    plaidItemId?: boolean;
+    plaidAccountId?: boolean;
+    name?: boolean;
+    type?: boolean;
+    balance?: boolean;
+    interestRate?: boolean;
+    minPayment?: boolean;
+    dueDate?: boolean;
+    suggestedPayment?: boolean;
+    autopay?: boolean;
+    lastSyncedAt?: boolean;
+    createdAt?: boolean;
+    updatedAt?: boolean;
+    user?: boolean | Prisma.UserDefaultArgs<ExtArgs>;
+    plaidItem?: boolean | Prisma.DebtAccount$plaidItemArgs<ExtArgs>;
+    planEntries?: boolean | Prisma.DebtAccount$planEntriesArgs<ExtArgs>;
+    payments?: boolean | Prisma.DebtAccount$paymentsArgs<ExtArgs>;
+    notifications?: boolean | Prisma.DebtAccount$notificationsArgs<ExtArgs>;
+    _count?: boolean | Prisma.DebtAccountCountOutputTypeDefaultArgs<ExtArgs>;
+}, ExtArgs["result"]["debtAccount"]>;
+export type DebtAccountSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+    id?: boolean;
+    userId?: boolean;
+    plaidItemId?: boolean;
+    plaidAccountId?: boolean;
+    name?: boolean;
+    type?: boolean;
+    balance?: boolean;
+    interestRate?: boolean;
+    minPayment?: boolean;
+    dueDate?: boolean;
+    suggestedPayment?: boolean;
+    autopay?: boolean;
+    lastSyncedAt?: boolean;
+    createdAt?: boolean;
+    updatedAt?: boolean;
+    user?: boolean | Prisma.UserDefaultArgs<ExtArgs>;
+    plaidItem?: boolean | Prisma.DebtAccount$plaidItemArgs<ExtArgs>;
+}, ExtArgs["result"]["debtAccount"]>;
+export type DebtAccountSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetSelect<{
+    id?: boolean;
+    userId?: boolean;
+    plaidItemId?: boolean;
+    plaidAccountId?: boolean;
+    name?: boolean;
+    type?: boolean;
+    balance?: boolean;
+    interestRate?: boolean;
+    minPayment?: boolean;
+    dueDate?: boolean;
+    suggestedPayment?: boolean;
+    autopay?: boolean;
+    lastSyncedAt?: boolean;
+    createdAt?: boolean;
+    updatedAt?: boolean;
+    user?: boolean | Prisma.UserDefaultArgs<ExtArgs>;
+    plaidItem?: boolean | Prisma.DebtAccount$plaidItemArgs<ExtArgs>;
+}, ExtArgs["result"]["debtAccount"]>;
+export type DebtAccountSelectScalar = {
+    id?: boolean;
+    userId?: boolean;
+    plaidItemId?: boolean;
+    plaidAccountId?: boolean;
+    name?: boolean;
+    type?: boolean;
+    balance?: boolean;
+    interestRate?: boolean;
+    minPayment?: boolean;
+    dueDate?: boolean;
+    suggestedPayment?: boolean;
+    autopay?: boolean;
+    lastSyncedAt?: boolean;
+    createdAt?: boolean;
+    updatedAt?: boolean;
+};
+export type DebtAccountOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "userId" | "plaidItemId" | "plaidAccountId" | "name" | "type" | "balance" | "interestRate" | "minPayment" | "dueDate" | "suggestedPayment" | "autopay" | "lastSyncedAt" | "createdAt" | "updatedAt", ExtArgs["result"]["debtAccount"]>;
+export type DebtAccountInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    user?: boolean | Prisma.UserDefaultArgs<ExtArgs>;
+    plaidItem?: boolean | Prisma.DebtAccount$plaidItemArgs<ExtArgs>;
+    planEntries?: boolean | Prisma.DebtAccount$planEntriesArgs<ExtArgs>;
+    payments?: boolean | Prisma.DebtAccount$paymentsArgs<ExtArgs>;
+    notifications?: boolean | Prisma.DebtAccount$notificationsArgs<ExtArgs>;
+    _count?: boolean | Prisma.DebtAccountCountOutputTypeDefaultArgs<ExtArgs>;
+};
+export type DebtAccountIncludeCreateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    user?: boolean | Prisma.UserDefaultArgs<ExtArgs>;
+    plaidItem?: boolean | Prisma.DebtAccount$plaidItemArgs<ExtArgs>;
+};
+export type DebtAccountIncludeUpdateManyAndReturn<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    user?: boolean | Prisma.UserDefaultArgs<ExtArgs>;
+    plaidItem?: boolean | Prisma.DebtAccount$plaidItemArgs<ExtArgs>;
+};
+export type $DebtAccountPayload<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    name: "DebtAccount";
+    objects: {
+        user: Prisma.$UserPayload<ExtArgs>;
+        plaidItem: Prisma.$PlaidItemPayload<ExtArgs> | null;
+        planEntries: Prisma.$PayoffPlanEntryPayload<ExtArgs>[];
+        payments: Prisma.$DebtPaymentPayload<ExtArgs>[];
+        notifications: Prisma.$NotificationPayload<ExtArgs>[];
+    };
+    scalars: runtime.Types.Extensions.GetPayloadResult<{
+        id: string;
+        userId: string;
+        plaidItemId: string | null;
+        plaidAccountId: string | null;
+        name: string;
+        type: $Enums.DebtType;
+        balance: runtime.Decimal;
+        interestRate: runtime.Decimal;
+        minPayment: runtime.Decimal;
+        dueDate: Date | null;
+        suggestedPayment: runtime.Decimal;
+        autopay: boolean;
+        lastSyncedAt: Date | null;
+        createdAt: Date;
+        updatedAt: Date;
+    }, ExtArgs["result"]["debtAccount"]>;
+    composites: {};
+};
+export type DebtAccountGetPayload<S extends boolean | null | undefined | DebtAccountDefaultArgs> = runtime.Types.Result.GetResult<Prisma.$DebtAccountPayload, S>;
+export type DebtAccountCountArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = Omit<DebtAccountFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+    select?: DebtAccountCountAggregateInputType | true;
+};
+export interface DebtAccountDelegate<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: {
+        types: Prisma.TypeMap<ExtArgs>['model']['DebtAccount'];
+        meta: {
+            name: 'DebtAccount';
+        };
+    };
+    /**
+     * Find zero or one DebtAccount that matches the filter.
+     * @param {DebtAccountFindUniqueArgs} args - Arguments to find a DebtAccount
+     * @example
+     * // Get one DebtAccount
+     * const debtAccount = await prisma.debtAccount.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends DebtAccountFindUniqueArgs>(args: Prisma.SelectSubset<T, DebtAccountFindUniqueArgs<ExtArgs>>): Prisma.Prisma__DebtAccountClient<runtime.Types.Result.GetResult<Prisma.$DebtAccountPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Find one DebtAccount that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {DebtAccountFindUniqueOrThrowArgs} args - Arguments to find a DebtAccount
+     * @example
+     * // Get one DebtAccount
+     * const debtAccount = await prisma.debtAccount.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends DebtAccountFindUniqueOrThrowArgs>(args: Prisma.SelectSubset<T, DebtAccountFindUniqueOrThrowArgs<ExtArgs>>): Prisma.Prisma__DebtAccountClient<runtime.Types.Result.GetResult<Prisma.$DebtAccountPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Find the first DebtAccount that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DebtAccountFindFirstArgs} args - Arguments to find a DebtAccount
+     * @example
+     * // Get one DebtAccount
+     * const debtAccount = await prisma.debtAccount.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends DebtAccountFindFirstArgs>(args?: Prisma.SelectSubset<T, DebtAccountFindFirstArgs<ExtArgs>>): Prisma.Prisma__DebtAccountClient<runtime.Types.Result.GetResult<Prisma.$DebtAccountPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Find the first DebtAccount that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DebtAccountFindFirstOrThrowArgs} args - Arguments to find a DebtAccount
+     * @example
+     * // Get one DebtAccount
+     * const debtAccount = await prisma.debtAccount.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends DebtAccountFindFirstOrThrowArgs>(args?: Prisma.SelectSubset<T, DebtAccountFindFirstOrThrowArgs<ExtArgs>>): Prisma.Prisma__DebtAccountClient<runtime.Types.Result.GetResult<Prisma.$DebtAccountPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Find zero or more DebtAccounts that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DebtAccountFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all DebtAccounts
+     * const debtAccounts = await prisma.debtAccount.findMany()
+     *
+     * // Get first 10 DebtAccounts
+     * const debtAccounts = await prisma.debtAccount.findMany({ take: 10 })
+     *
+     * // Only select the `id`
+     * const debtAccountWithIdOnly = await prisma.debtAccount.findMany({ select: { id: true } })
+     *
+     */
+    findMany<T extends DebtAccountFindManyArgs>(args?: Prisma.SelectSubset<T, DebtAccountFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$DebtAccountPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>;
+    /**
+     * Create a DebtAccount.
+     * @param {DebtAccountCreateArgs} args - Arguments to create a DebtAccount.
+     * @example
+     * // Create one DebtAccount
+     * const DebtAccount = await prisma.debtAccount.create({
+     *   data: {
+     *     // ... data to create a DebtAccount
+     *   }
+     * })
+     *
+     */
+    create<T extends DebtAccountCreateArgs>(args: Prisma.SelectSubset<T, DebtAccountCreateArgs<ExtArgs>>): Prisma.Prisma__DebtAccountClient<runtime.Types.Result.GetResult<Prisma.$DebtAccountPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Create many DebtAccounts.
+     * @param {DebtAccountCreateManyArgs} args - Arguments to create many DebtAccounts.
+     * @example
+     * // Create many DebtAccounts
+     * const debtAccount = await prisma.debtAccount.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *
+     */
+    createMany<T extends DebtAccountCreateManyArgs>(args?: Prisma.SelectSubset<T, DebtAccountCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>;
+    /**
+     * Create many DebtAccounts and returns the data saved in the database.
+     * @param {DebtAccountCreateManyAndReturnArgs} args - Arguments to create many DebtAccounts.
+     * @example
+     * // Create many DebtAccounts
+     * const debtAccount = await prisma.debtAccount.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *
+     * // Create many DebtAccounts and only return the `id`
+     * const debtAccountWithIdOnly = await prisma.debtAccount.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     *
+     */
+    createManyAndReturn<T extends DebtAccountCreateManyAndReturnArgs>(args?: Prisma.SelectSubset<T, DebtAccountCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$DebtAccountPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>;
+    /**
+     * Delete a DebtAccount.
+     * @param {DebtAccountDeleteArgs} args - Arguments to delete one DebtAccount.
+     * @example
+     * // Delete one DebtAccount
+     * const DebtAccount = await prisma.debtAccount.delete({
+     *   where: {
+     *     // ... filter to delete one DebtAccount
+     *   }
+     * })
+     *
+     */
+    delete<T extends DebtAccountDeleteArgs>(args: Prisma.SelectSubset<T, DebtAccountDeleteArgs<ExtArgs>>): Prisma.Prisma__DebtAccountClient<runtime.Types.Result.GetResult<Prisma.$DebtAccountPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Update one DebtAccount.
+     * @param {DebtAccountUpdateArgs} args - Arguments to update one DebtAccount.
+     * @example
+     * // Update one DebtAccount
+     * const debtAccount = await prisma.debtAccount.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     *
+     */
+    update<T extends DebtAccountUpdateArgs>(args: Prisma.SelectSubset<T, DebtAccountUpdateArgs<ExtArgs>>): Prisma.Prisma__DebtAccountClient<runtime.Types.Result.GetResult<Prisma.$DebtAccountPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Delete zero or more DebtAccounts.
+     * @param {DebtAccountDeleteManyArgs} args - Arguments to filter DebtAccounts to delete.
+     * @example
+     * // Delete a few DebtAccounts
+     * const { count } = await prisma.debtAccount.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     *
+     */
+    deleteMany<T extends DebtAccountDeleteManyArgs>(args?: Prisma.SelectSubset<T, DebtAccountDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>;
+    /**
+     * Update zero or more DebtAccounts.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DebtAccountUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many DebtAccounts
+     * const debtAccount = await prisma.debtAccount.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     *
+     */
+    updateMany<T extends DebtAccountUpdateManyArgs>(args: Prisma.SelectSubset<T, DebtAccountUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<Prisma.BatchPayload>;
+    /**
+     * Update zero or more DebtAccounts and returns the data updated in the database.
+     * @param {DebtAccountUpdateManyAndReturnArgs} args - Arguments to update many DebtAccounts.
+     * @example
+     * // Update many DebtAccounts
+     * const debtAccount = await prisma.debtAccount.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *
+     * // Update zero or more DebtAccounts and only return the `id`
+     * const debtAccountWithIdOnly = await prisma.debtAccount.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     *
+     */
+    updateManyAndReturn<T extends DebtAccountUpdateManyAndReturnArgs>(args: Prisma.SelectSubset<T, DebtAccountUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$DebtAccountPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>;
+    /**
+     * Create or update one DebtAccount.
+     * @param {DebtAccountUpsertArgs} args - Arguments to update or create a DebtAccount.
+     * @example
+     * // Update or create a DebtAccount
+     * const debtAccount = await prisma.debtAccount.upsert({
+     *   create: {
+     *     // ... data to create a DebtAccount
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the DebtAccount we want to update
+     *   }
+     * })
+     */
+    upsert<T extends DebtAccountUpsertArgs>(args: Prisma.SelectSubset<T, DebtAccountUpsertArgs<ExtArgs>>): Prisma.Prisma__DebtAccountClient<runtime.Types.Result.GetResult<Prisma.$DebtAccountPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>;
+    /**
+     * Count the number of DebtAccounts.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DebtAccountCountArgs} args - Arguments to filter DebtAccounts to count.
+     * @example
+     * // Count the number of DebtAccounts
+     * const count = await prisma.debtAccount.count({
+     *   where: {
+     *     // ... the filter for the DebtAccounts we want to count
+     *   }
+     * })
+    **/
+    count<T extends DebtAccountCountArgs>(args?: Prisma.Subset<T, DebtAccountCountArgs>): Prisma.PrismaPromise<T extends runtime.Types.Utils.Record<'select', any> ? T['select'] extends true ? number : Prisma.GetScalarType<T['select'], DebtAccountCountAggregateOutputType> : number>;
+    /**
+     * Allows you to perform aggregations operations on a DebtAccount.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DebtAccountAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends DebtAccountAggregateArgs>(args: Prisma.Subset<T, DebtAccountAggregateArgs>): Prisma.PrismaPromise<GetDebtAccountAggregateType<T>>;
+    /**
+     * Group by DebtAccount.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {DebtAccountGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     *
+    **/
+    groupBy<T extends DebtAccountGroupByArgs, HasSelectOrTake extends Prisma.Or<Prisma.Extends<'skip', Prisma.Keys<T>>, Prisma.Extends<'take', Prisma.Keys<T>>>, OrderByArg extends Prisma.True extends HasSelectOrTake ? {
+        orderBy: DebtAccountGroupByArgs['orderBy'];
+    } : {
+        orderBy?: DebtAccountGroupByArgs['orderBy'];
+    }, OrderFields extends Prisma.ExcludeUnderscoreKeys<Prisma.Keys<Prisma.MaybeTupleToUnion<T['orderBy']>>>, ByFields extends Prisma.MaybeTupleToUnion<T['by']>, ByValid extends Prisma.Has<ByFields, OrderFields>, HavingFields extends Prisma.GetHavingFields<T['having']>, HavingValid extends Prisma.Has<ByFields, HavingFields>, ByEmpty extends T['by'] extends never[] ? Prisma.True : Prisma.False, InputErrors extends ByEmpty extends Prisma.True ? `Error: "by" must not be empty.` : HavingValid extends Prisma.False ? {
+        [P in HavingFields]: P extends ByFields ? never : P extends string ? `Error: Field "${P}" used in "having" needs to be provided in "by".` : [
+            Error,
+            'Field ',
+            P,
+            ` in "having" needs to be provided in "by"`
+        ];
+    }[HavingFields] : 'take' extends Prisma.Keys<T> ? 'orderBy' extends Prisma.Keys<T> ? ByValid extends Prisma.True ? {} : {
+        [P in OrderFields]: P extends ByFields ? never : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`;
+    }[OrderFields] : 'Error: If you provide "take", you also need to provide "orderBy"' : 'skip' extends Prisma.Keys<T> ? 'orderBy' extends Prisma.Keys<T> ? ByValid extends Prisma.True ? {} : {
+        [P in OrderFields]: P extends ByFields ? never : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`;
+    }[OrderFields] : 'Error: If you provide "skip", you also need to provide "orderBy"' : ByValid extends Prisma.True ? {} : {
+        [P in OrderFields]: P extends ByFields ? never : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`;
+    }[OrderFields]>(args: Prisma.SubsetIntersection<T, DebtAccountGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetDebtAccountGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>;
+    /**
+     * Fields of the DebtAccount model
+     */
+    readonly fields: DebtAccountFieldRefs;
+}
+/**
+ * The delegate class that acts as a "Promise-like" for DebtAccount.
+ * Why is this prefixed with `Prisma__`?
+ * Because we want to prevent naming conflicts as mentioned in
+ * https://github.com/prisma/prisma-client-js/issues/707
+ */
+export interface Prisma__DebtAccountClient<T, Null = never, ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise";
+    user<T extends Prisma.UserDefaultArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.UserDefaultArgs<ExtArgs>>): Prisma.Prisma__UserClient<runtime.Types.Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>;
+    plaidItem<T extends Prisma.DebtAccount$plaidItemArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.DebtAccount$plaidItemArgs<ExtArgs>>): Prisma.Prisma__PlaidItemClient<runtime.Types.Result.GetResult<Prisma.$PlaidItemPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>;
+    planEntries<T extends Prisma.DebtAccount$planEntriesArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.DebtAccount$planEntriesArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$PayoffPlanEntryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>;
+    payments<T extends Prisma.DebtAccount$paymentsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.DebtAccount$paymentsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$DebtPaymentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>;
+    notifications<T extends Prisma.DebtAccount$notificationsArgs<ExtArgs> = {}>(args?: Prisma.Subset<T, Prisma.DebtAccount$notificationsArgs<ExtArgs>>): Prisma.PrismaPromise<runtime.Types.Result.GetResult<Prisma.$NotificationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>;
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): runtime.Types.Utils.JsPromise<TResult1 | TResult2>;
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): runtime.Types.Utils.JsPromise<T | TResult>;
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): runtime.Types.Utils.JsPromise<T>;
+}
+/**
+ * Fields of the DebtAccount model
+ */
+export interface DebtAccountFieldRefs {
+    readonly id: Prisma.FieldRef<"DebtAccount", 'String'>;
+    readonly userId: Prisma.FieldRef<"DebtAccount", 'String'>;
+    readonly plaidItemId: Prisma.FieldRef<"DebtAccount", 'String'>;
+    readonly plaidAccountId: Prisma.FieldRef<"DebtAccount", 'String'>;
+    readonly name: Prisma.FieldRef<"DebtAccount", 'String'>;
+    readonly type: Prisma.FieldRef<"DebtAccount", 'DebtType'>;
+    readonly balance: Prisma.FieldRef<"DebtAccount", 'Decimal'>;
+    readonly interestRate: Prisma.FieldRef<"DebtAccount", 'Decimal'>;
+    readonly minPayment: Prisma.FieldRef<"DebtAccount", 'Decimal'>;
+    readonly dueDate: Prisma.FieldRef<"DebtAccount", 'DateTime'>;
+    readonly suggestedPayment: Prisma.FieldRef<"DebtAccount", 'Decimal'>;
+    readonly autopay: Prisma.FieldRef<"DebtAccount", 'Boolean'>;
+    readonly lastSyncedAt: Prisma.FieldRef<"DebtAccount", 'DateTime'>;
+    readonly createdAt: Prisma.FieldRef<"DebtAccount", 'DateTime'>;
+    readonly updatedAt: Prisma.FieldRef<"DebtAccount", 'DateTime'>;
+}
+/**
+ * DebtAccount findUnique
+ */
+export type DebtAccountFindUniqueArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DebtAccount
+     */
+    select?: Prisma.DebtAccountSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the DebtAccount
+     */
+    omit?: Prisma.DebtAccountOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.DebtAccountInclude<ExtArgs> | null;
+    /**
+     * Filter, which DebtAccount to fetch.
+     */
+    where: Prisma.DebtAccountWhereUniqueInput;
+};
+/**
+ * DebtAccount findUniqueOrThrow
+ */
+export type DebtAccountFindUniqueOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DebtAccount
+     */
+    select?: Prisma.DebtAccountSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the DebtAccount
+     */
+    omit?: Prisma.DebtAccountOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.DebtAccountInclude<ExtArgs> | null;
+    /**
+     * Filter, which DebtAccount to fetch.
+     */
+    where: Prisma.DebtAccountWhereUniqueInput;
+};
+/**
+ * DebtAccount findFirst
+ */
+export type DebtAccountFindFirstArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DebtAccount
+     */
+    select?: Prisma.DebtAccountSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the DebtAccount
+     */
+    omit?: Prisma.DebtAccountOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.DebtAccountInclude<ExtArgs> | null;
+    /**
+     * Filter, which DebtAccount to fetch.
+     */
+    where?: Prisma.DebtAccountWhereInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of DebtAccounts to fetch.
+     */
+    orderBy?: Prisma.DebtAccountOrderByWithRelationInput | Prisma.DebtAccountOrderByWithRelationInput[];
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the position for searching for DebtAccounts.
+     */
+    cursor?: Prisma.DebtAccountWhereUniqueInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` DebtAccounts from the position of the cursor.
+     */
+    take?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` DebtAccounts.
+     */
+    skip?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     *
+     * Filter by unique combinations of DebtAccounts.
+     */
+    distinct?: Prisma.DebtAccountScalarFieldEnum | Prisma.DebtAccountScalarFieldEnum[];
+};
+/**
+ * DebtAccount findFirstOrThrow
+ */
+export type DebtAccountFindFirstOrThrowArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DebtAccount
+     */
+    select?: Prisma.DebtAccountSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the DebtAccount
+     */
+    omit?: Prisma.DebtAccountOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.DebtAccountInclude<ExtArgs> | null;
+    /**
+     * Filter, which DebtAccount to fetch.
+     */
+    where?: Prisma.DebtAccountWhereInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of DebtAccounts to fetch.
+     */
+    orderBy?: Prisma.DebtAccountOrderByWithRelationInput | Prisma.DebtAccountOrderByWithRelationInput[];
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the position for searching for DebtAccounts.
+     */
+    cursor?: Prisma.DebtAccountWhereUniqueInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` DebtAccounts from the position of the cursor.
+     */
+    take?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` DebtAccounts.
+     */
+    skip?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     *
+     * Filter by unique combinations of DebtAccounts.
+     */
+    distinct?: Prisma.DebtAccountScalarFieldEnum | Prisma.DebtAccountScalarFieldEnum[];
+};
+/**
+ * DebtAccount findMany
+ */
+export type DebtAccountFindManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DebtAccount
+     */
+    select?: Prisma.DebtAccountSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the DebtAccount
+     */
+    omit?: Prisma.DebtAccountOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.DebtAccountInclude<ExtArgs> | null;
+    /**
+     * Filter, which DebtAccounts to fetch.
+     */
+    where?: Prisma.DebtAccountWhereInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     *
+     * Determine the order of DebtAccounts to fetch.
+     */
+    orderBy?: Prisma.DebtAccountOrderByWithRelationInput | Prisma.DebtAccountOrderByWithRelationInput[];
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     *
+     * Sets the position for listing DebtAccounts.
+     */
+    cursor?: Prisma.DebtAccountWhereUniqueInput;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Take `±n` DebtAccounts from the position of the cursor.
+     */
+    take?: number;
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     *
+     * Skip the first `n` DebtAccounts.
+     */
+    skip?: number;
+    distinct?: Prisma.DebtAccountScalarFieldEnum | Prisma.DebtAccountScalarFieldEnum[];
+};
+/**
+ * DebtAccount create
+ */
+export type DebtAccountCreateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DebtAccount
+     */
+    select?: Prisma.DebtAccountSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the DebtAccount
+     */
+    omit?: Prisma.DebtAccountOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.DebtAccountInclude<ExtArgs> | null;
+    /**
+     * The data needed to create a DebtAccount.
+     */
+    data: Prisma.XOR<Prisma.DebtAccountCreateInput, Prisma.DebtAccountUncheckedCreateInput>;
+};
+/**
+ * DebtAccount createMany
+ */
+export type DebtAccountCreateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many DebtAccounts.
+     */
+    data: Prisma.DebtAccountCreateManyInput | Prisma.DebtAccountCreateManyInput[];
+    skipDuplicates?: boolean;
+};
+/**
+ * DebtAccount createManyAndReturn
+ */
+export type DebtAccountCreateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DebtAccount
+     */
+    select?: Prisma.DebtAccountSelectCreateManyAndReturn<ExtArgs> | null;
+    /**
+     * Omit specific fields from the DebtAccount
+     */
+    omit?: Prisma.DebtAccountOmit<ExtArgs> | null;
+    /**
+     * The data used to create many DebtAccounts.
+     */
+    data: Prisma.DebtAccountCreateManyInput | Prisma.DebtAccountCreateManyInput[];
+    skipDuplicates?: boolean;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.DebtAccountIncludeCreateManyAndReturn<ExtArgs> | null;
+};
+/**
+ * DebtAccount update
+ */
+export type DebtAccountUpdateArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DebtAccount
+     */
+    select?: Prisma.DebtAccountSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the DebtAccount
+     */
+    omit?: Prisma.DebtAccountOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.DebtAccountInclude<ExtArgs> | null;
+    /**
+     * The data needed to update a DebtAccount.
+     */
+    data: Prisma.XOR<Prisma.DebtAccountUpdateInput, Prisma.DebtAccountUncheckedUpdateInput>;
+    /**
+     * Choose, which DebtAccount to update.
+     */
+    where: Prisma.DebtAccountWhereUniqueInput;
+};
+/**
+ * DebtAccount updateMany
+ */
+export type DebtAccountUpdateManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * The data used to update DebtAccounts.
+     */
+    data: Prisma.XOR<Prisma.DebtAccountUpdateManyMutationInput, Prisma.DebtAccountUncheckedUpdateManyInput>;
+    /**
+     * Filter which DebtAccounts to update
+     */
+    where?: Prisma.DebtAccountWhereInput;
+    /**
+     * Limit how many DebtAccounts to update.
+     */
+    limit?: number;
+};
+/**
+ * DebtAccount updateManyAndReturn
+ */
+export type DebtAccountUpdateManyAndReturnArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DebtAccount
+     */
+    select?: Prisma.DebtAccountSelectUpdateManyAndReturn<ExtArgs> | null;
+    /**
+     * Omit specific fields from the DebtAccount
+     */
+    omit?: Prisma.DebtAccountOmit<ExtArgs> | null;
+    /**
+     * The data used to update DebtAccounts.
+     */
+    data: Prisma.XOR<Prisma.DebtAccountUpdateManyMutationInput, Prisma.DebtAccountUncheckedUpdateManyInput>;
+    /**
+     * Filter which DebtAccounts to update
+     */
+    where?: Prisma.DebtAccountWhereInput;
+    /**
+     * Limit how many DebtAccounts to update.
+     */
+    limit?: number;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.DebtAccountIncludeUpdateManyAndReturn<ExtArgs> | null;
+};
+/**
+ * DebtAccount upsert
+ */
+export type DebtAccountUpsertArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DebtAccount
+     */
+    select?: Prisma.DebtAccountSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the DebtAccount
+     */
+    omit?: Prisma.DebtAccountOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.DebtAccountInclude<ExtArgs> | null;
+    /**
+     * The filter to search for the DebtAccount to update in case it exists.
+     */
+    where: Prisma.DebtAccountWhereUniqueInput;
+    /**
+     * In case the DebtAccount found by the `where` argument doesn't exist, create a new DebtAccount with this data.
+     */
+    create: Prisma.XOR<Prisma.DebtAccountCreateInput, Prisma.DebtAccountUncheckedCreateInput>;
+    /**
+     * In case the DebtAccount was found with the provided `where` argument, update it with this data.
+     */
+    update: Prisma.XOR<Prisma.DebtAccountUpdateInput, Prisma.DebtAccountUncheckedUpdateInput>;
+};
+/**
+ * DebtAccount delete
+ */
+export type DebtAccountDeleteArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DebtAccount
+     */
+    select?: Prisma.DebtAccountSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the DebtAccount
+     */
+    omit?: Prisma.DebtAccountOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.DebtAccountInclude<ExtArgs> | null;
+    /**
+     * Filter which DebtAccount to delete.
+     */
+    where: Prisma.DebtAccountWhereUniqueInput;
+};
+/**
+ * DebtAccount deleteMany
+ */
+export type DebtAccountDeleteManyArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Filter which DebtAccounts to delete
+     */
+    where?: Prisma.DebtAccountWhereInput;
+    /**
+     * Limit how many DebtAccounts to delete.
+     */
+    limit?: number;
+};
+/**
+ * DebtAccount.plaidItem
+ */
+export type DebtAccount$plaidItemArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PlaidItem
+     */
+    select?: Prisma.PlaidItemSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the PlaidItem
+     */
+    omit?: Prisma.PlaidItemOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.PlaidItemInclude<ExtArgs> | null;
+    where?: Prisma.PlaidItemWhereInput;
+};
+/**
+ * DebtAccount.planEntries
+ */
+export type DebtAccount$planEntriesArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the PayoffPlanEntry
+     */
+    select?: Prisma.PayoffPlanEntrySelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the PayoffPlanEntry
+     */
+    omit?: Prisma.PayoffPlanEntryOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.PayoffPlanEntryInclude<ExtArgs> | null;
+    where?: Prisma.PayoffPlanEntryWhereInput;
+    orderBy?: Prisma.PayoffPlanEntryOrderByWithRelationInput | Prisma.PayoffPlanEntryOrderByWithRelationInput[];
+    cursor?: Prisma.PayoffPlanEntryWhereUniqueInput;
+    take?: number;
+    skip?: number;
+    distinct?: Prisma.PayoffPlanEntryScalarFieldEnum | Prisma.PayoffPlanEntryScalarFieldEnum[];
+};
+/**
+ * DebtAccount.payments
+ */
+export type DebtAccount$paymentsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DebtPayment
+     */
+    select?: Prisma.DebtPaymentSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the DebtPayment
+     */
+    omit?: Prisma.DebtPaymentOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.DebtPaymentInclude<ExtArgs> | null;
+    where?: Prisma.DebtPaymentWhereInput;
+    orderBy?: Prisma.DebtPaymentOrderByWithRelationInput | Prisma.DebtPaymentOrderByWithRelationInput[];
+    cursor?: Prisma.DebtPaymentWhereUniqueInput;
+    take?: number;
+    skip?: number;
+    distinct?: Prisma.DebtPaymentScalarFieldEnum | Prisma.DebtPaymentScalarFieldEnum[];
+};
+/**
+ * DebtAccount.notifications
+ */
+export type DebtAccount$notificationsArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Notification
+     */
+    select?: Prisma.NotificationSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the Notification
+     */
+    omit?: Prisma.NotificationOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.NotificationInclude<ExtArgs> | null;
+    where?: Prisma.NotificationWhereInput;
+    orderBy?: Prisma.NotificationOrderByWithRelationInput | Prisma.NotificationOrderByWithRelationInput[];
+    cursor?: Prisma.NotificationWhereUniqueInput;
+    take?: number;
+    skip?: number;
+    distinct?: Prisma.NotificationScalarFieldEnum | Prisma.NotificationScalarFieldEnum[];
+};
+/**
+ * DebtAccount without action
+ */
+export type DebtAccountDefaultArgs<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the DebtAccount
+     */
+    select?: Prisma.DebtAccountSelect<ExtArgs> | null;
+    /**
+     * Omit specific fields from the DebtAccount
+     */
+    omit?: Prisma.DebtAccountOmit<ExtArgs> | null;
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: Prisma.DebtAccountInclude<ExtArgs> | null;
+};
+export {};
+//# sourceMappingURL=DebtAccount.d.ts.map

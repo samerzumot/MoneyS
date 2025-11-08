@@ -1,0 +1,96 @@
+import { DebtType } from "../generated/client/enums";
+export declare const getDebtsForUser: (userId: string) => Promise<{
+    balance: number;
+    interestRate: number;
+    minPayment: number;
+    suggestedPayment: number;
+    payments: {
+        amount: number;
+        id: string;
+        createdAt: Date;
+        debtId: string;
+        paymentDate: Date;
+    }[];
+    type: DebtType;
+    name: string;
+    id: string;
+    createdAt: Date;
+    updatedAt: Date;
+    userId: string;
+    dueDate: Date | null;
+    plaidAccountId: string | null;
+    plaidItemId: string | null;
+    autopay: boolean;
+    lastSyncedAt: Date | null;
+}[]>;
+export type DebtInput = {
+    name: string;
+    type: string;
+    balance: number;
+    interestRate: number;
+    minPayment: number;
+    dueDate?: string | null | undefined;
+    autopay?: boolean | undefined;
+    plaidAccountId?: string | null | undefined;
+    plaidItemId?: string | null | undefined;
+};
+export declare const normalizeDebtType: (value: string) => DebtType;
+export declare const createDebt: (userId: string, input: DebtInput) => Promise<{
+    balance: number;
+    interestRate: number;
+    minPayment: number;
+    suggestedPayment: number;
+    type: DebtType;
+    name: string;
+    id: string;
+    createdAt: Date;
+    updatedAt: Date;
+    userId: string;
+    dueDate: Date | null;
+    plaidAccountId: string | null;
+    plaidItemId: string | null;
+    autopay: boolean;
+    lastSyncedAt: Date | null;
+}>;
+export declare const updateDebt: (userId: string, debtId: string, input: Partial<DebtInput>) => Promise<{
+    balance: number;
+    interestRate: number;
+    minPayment: number;
+    suggestedPayment: number;
+    type: DebtType;
+    name: string;
+    id: string;
+    createdAt: Date;
+    updatedAt: Date;
+    userId: string;
+    dueDate: Date | null;
+    plaidAccountId: string | null;
+    plaidItemId: string | null;
+    autopay: boolean;
+    lastSyncedAt: Date | null;
+}>;
+export declare const deleteDebt: (userId: string, debtId: string) => Promise<{
+    type: DebtType;
+    name: string;
+    id: string;
+    createdAt: Date;
+    updatedAt: Date;
+    userId: string;
+    interestRate: import("@prisma/client/runtime/library").Decimal;
+    minPayment: import("@prisma/client/runtime/library").Decimal;
+    dueDate: Date | null;
+    plaidAccountId: string | null;
+    plaidItemId: string | null;
+    balance: import("@prisma/client/runtime/library").Decimal;
+    suggestedPayment: import("@prisma/client/runtime/library").Decimal;
+    autopay: boolean;
+    lastSyncedAt: Date | null;
+}>;
+export declare const recordDebtPayment: (userId: string, debtId: string, amount: number, paymentDate: string) => Promise<{
+    amount: number;
+    id: string;
+    createdAt: Date;
+    debtId: string;
+    paymentDate: Date;
+}>;
+//# sourceMappingURL=debtService.d.ts.map

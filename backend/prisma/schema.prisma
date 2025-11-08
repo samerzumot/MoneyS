@@ -1,0 +1,167 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/client"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum DebtType {
+  CREDIT_CARD
+  LOAN
+  MORTGAGE
+  STUDENT_LOAN
+  BNPL
+  OTHER
+}
+
+enum Frequency {
+  WEEKLY
+  BIWEEKLY
+  MONTHLY
+  QUARTERLY
+  YEARLY
+  CUSTOM
+}
+
+enum NotificationType {
+  DEBT_PAYMENT
+  EXPENSE_REMINDER
+  PLAN_UPDATE
+}
+
+enum NotificationStatus {
+  PENDING
+  SENT
+  SKIPPED
+}
+
+model User {
+  id           String            @id @default(uuid())
+  firebaseUid  String            @unique
+  email        String?
+  displayName  String?
+  createdAt    DateTime          @default(now())
+  updatedAt    DateTime          @updatedAt
+  debts        DebtAccount[]
+  expenses     RecurringExpense[]
+  payoffPlans  PayoffPlan[]
+  notifications Notification[]
+  plaidItems   PlaidItem[]
+}
+
+model DebtAccount {
+  id               String      @id @default(uuid())
+  userId           String
+  user             User        @relation(fields: [userId], references: [id])
+  plaidItemId      String?
+  plaidItem        PlaidItem?  @relation(fields: [plaidItemId], references: [id])
+  plaidAccountId   String?    @unique
+  name             String
+  type             DebtType
+  balance          Decimal     @db.Decimal(18, 2)
+  interestRate     Decimal     @db.Decimal(5, 2)
+  minPayment       Decimal     @db.Decimal(10, 2)
+  dueDate          DateTime?
+  suggestedPayment Decimal     @db.Decimal(10, 2) @default(0)
+  autopay          Boolean     @default(false)
+  lastSyncedAt     DateTime?
+  createdAt        DateTime    @default(now())
+  updatedAt        DateTime    @updatedAt
+  planEntries      PayoffPlanEntry[]
+  payments         DebtPayment[]
+  notifications    Notification[]
+}
+
+model DebtPayment {
+  id          String   @id @default(uuid())
+  debtId      String
+  debt        DebtAccount @relation(fields: [debtId], references: [id])
+  amount      Decimal  @db.Decimal(10, 2)
+  paymentDate DateTime
+  createdAt   DateTime @default(now())
+}
+
+model RecurringExpense {
+  id             String    @id @default(uuid())
+  userId         String
+  user           User      @relation(fields: [userId], references: [id])
+  name           String
+  category       String?
+  amount         Decimal   @db.Decimal(10, 2)
+  frequency      Frequency
+  dueDate        DateTime
+  reminderDays   Int       @default(3)
+  autopay        Boolean   @default(false)
+  lastPaidDate   DateTime?
+  notes          String?
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+  notifications  Notification[]
+}
+
+model PayoffPlan {
+  id                String             @id @default(uuid())
+  userId            String
+  user              User               @relation(fields: [userId], references: [id])
+  strategy          String             // e.g. "avalanche", "snowball", "custom-ai"
+  totalInterestPaid Decimal            @db.Decimal(18, 2)
+  estimatedPayoffDate DateTime?
+  createdAt         DateTime           @default(now())
+  updatedAt         DateTime           @updatedAt
+  entries           PayoffPlanEntry[]
+}
+
+model PayoffPlanEntry {
+  id            String      @id @default(uuid())
+  planId        String
+  plan          PayoffPlan  @relation(fields: [planId], references: [id])
+  debtId        String
+  debt          DebtAccount @relation(fields: [debtId], references: [id])
+  month         Int
+  year          Int
+  payment       Decimal     @db.Decimal(10, 2)
+  interestPortion Decimal   @db.Decimal(10, 2)
+  principalPortion Decimal  @db.Decimal(10, 2)
+  remainingBalance Decimal  @db.Decimal(18, 2)
+  createdAt     DateTime    @default(now())
+}
+
+model Notification {
+  id            String             @id @default(uuid())
+  userId        String
+  user          User               @relation(fields: [userId], references: [id])
+  expenseId     String?
+  expense       RecurringExpense?  @relation(fields: [expenseId], references: [id])
+  debtId        String?
+  debt          DebtAccount?       @relation(fields: [debtId], references: [id])
+  type          NotificationType
+  status        NotificationStatus @default(PENDING)
+  sendAt        DateTime
+  sentAt        DateTime?
+  channel       String             // e.g. "email", "in-app"
+  message       String
+  createdAt     DateTime           @default(now())
+}
+
+model PlaidItem {
+  id             String   @id @default(uuid())
+  userId         String
+  user           User     @relation(fields: [userId], references: [id])
+  itemId         String   @unique
+  accessToken    String
+  institutionId  String?
+  institutionName String?
+  cursor         String?
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+  accounts       DebtAccount[]
+}
